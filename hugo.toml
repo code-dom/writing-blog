@@ -6,7 +6,7 @@ author = 'Code-dom'
 
 # Shown in the side menu
 copyright = "&copy; 2017. All rights reserved."
-canonifyurls = true
+# canonifyurls = true
 paginate = 10
 theme = 'ananke'
 
@@ -18,12 +18,12 @@ topic = "topics"
 # Shown in the home page
 subtitle = "Move on"
 brand = "Menu"
-googleAnalytics = "UA-103593285-1"
+# googleAnalytics = "UA-103593285-1"
 # CSS name for highlight.js
 highlightjs = "monokai"
 dateFormat = "02 Jan 2006, 15:04"
 #disqusShortname
-disqus = "gdzhu8023"
+disqus = "code-dom"
 
 [menu]
 # Shown in the side menu.
@@ -60,6 +60,7 @@ name = "Tags"
 pre = "<i class='fa fa-tags fa-fw'></i>"
 weight = 6
 url = "/tags/"
+
 
 [social]
 # Link your social networking accouns to the side menu
