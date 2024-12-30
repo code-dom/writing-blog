@@ -1,10 +1,8 @@
 +++
 date = '2024-12-30T21:57:22+08:00'
-draft = true
+draft = false
 title = 'My First Post'
 +++
-## Introduction
+## Start
 
-This is **bold** text, and this is *emphasized* text.
-
-Visit the [Hugo](https://gohugo.io) website!
+开始写blog，希望能坚持下去！

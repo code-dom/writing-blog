@@ -1,4 +1,77 @@
-baseURL = 'https://example.org/'
+baseURL = 'https://code-dom.github.io/writing-blog/'
 languageCode = 'zh-cn'
-title = 'My New Hugo Site'
+title = 'Xiheyaoling'
+author = 'Code-dom'
+
+
+# Shown in the side menu
+copyright = "&copy; 2017. All rights reserved."
+canonifyurls = true
+paginate = 10
 theme = 'ananke'
+
+[indexes]
+tag = "tags"
+topic = "topics"
+
+[params]
+# Shown in the home page
+subtitle = "Move on"
+brand = "Menu"
+googleAnalytics = "UA-103593285-1"
+# CSS name for highlight.js
+highlightjs = "monokai"
+dateFormat = "02 Jan 2006, 15:04"
+#disqusShortname
+disqus = "gdzhu8023"
+
+[menu]
+# Shown in the side menu.
+[[menu.main]]
+name = "Home"
+pre = "<i class='fa fa-home fa-fw'></i>"
+weight = 1
+identifier = "home"
+url = "/"
+[[menu.main]]
+name = "Posts"
+pre = "<i class='fa fa-list fa-fw'></i>"
+weight = 2
+identifier = "post"
+url = "/post/"
+[[menu.main]]
+name = "About"
+pre = "<i class='fa fa-user fa-fw'></i>"
+weight = 3
+identifier = "about"
+url = "/about/"
+[[menu.main]]
+name = "Contact"
+pre = "<i class='fa fa-phone fa-fw'></i>"
+weight = 4
+url = "/contact/"
+[[menu.main]]
+name = "Topics"
+pre = "<i class='fa fa-folder fa-fw'></i>"
+weight = 5
+url = "/topics/"
+[[menu.main]]
+name = "Tags"
+pre = "<i class='fa fa-tags fa-fw'></i>"
+weight = 6
+url = "/tags/"
+
+[social]
+# Link your social networking accouns to the side menu
+# by entering your username or ID.
+
+# SNS microblogging
+
+# SNS career oriented
+
+# SNS news
+#reddit = "*"
+#hackernews = "*"
+
+# Techie
+github = "code-dom"
