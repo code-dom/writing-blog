@@ -8,7 +8,7 @@ author = 'Code-dom'
 copyright = "&copy; 2017. All rights reserved."
 # canonifyurls = true
 paginate = 10
-theme = 'hugo-book'
+theme = 'ananke'
 
 [indexes]
 tag = "tags"

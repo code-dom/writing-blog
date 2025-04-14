@@ -2,19 +2,19 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Posts on Xiheyaoling</title>
-    <link>https://code-dom.github.io/writing-blog/posts/</link>
+    <link>http://localhost:1313/writing-blog/posts/</link>
     <description>Recent content in Posts on Xiheyaoling</description>
     <generator>Hugo</generator>
     <language>zh-cn</language>
     <copyright>&amp;copy; 2017. All rights reserved.</copyright>
     <lastBuildDate>Mon, 30 Dec 2024 21:57:22 +0800</lastBuildDate>
-    <atom:link href="https://code-dom.github.io/writing-blog/posts/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:1313/writing-blog/posts/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>My First Post</title>
-      <link>https://code-dom.github.io/writing-blog/posts/my-first-post/</link>
+      <link>http://localhost:1313/writing-blog/posts/my-first-post/</link>
       <pubDate>Mon, 30 Dec 2024 21:57:22 +0800</pubDate>
-      <guid>https://code-dom.github.io/writing-blog/posts/my-first-post/</guid>
-      <description>Start # 开始写blog，希望能坚持下去！</description>
+      <guid>http://localhost:1313/writing-blog/posts/my-first-post/</guid>
+      <description>Start 开始写blog，希望能坚持下去！</description>
     </item>
   </channel>
 </rss>
