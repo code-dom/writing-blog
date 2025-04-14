@@ -1,7 +1,7 @@
 {
 	"version": 3,
 	"file": "main.css",
-	"sourceRoot": "C:/笔记/1000--工作/blog/write/Ablog",
+	"sourceRoot": "/Users/xihe/Downloads/笔记/wirte/writing-blog",
 	"sources": [
 		"ananke/css/main.css"
 	],
