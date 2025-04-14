@@ -1,12 +1,8 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>Tags on Xiheyaoling</title>
-    <link>http://localhost:1313/writing-blog/tags/</link>
-    <description>Recent content in Tags on Xiheyaoling</description>
-    <generator>Hugo</generator>
-    <language>zh-cn</language>
-    <copyright>&amp;copy; 2017. All rights reserved.</copyright>
-    <atom:link href="http://localhost:1313/writing-blog/tags/index.xml" rel="self" type="application/rss+xml" />
-  </channel>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>Tags - Tag - Xiheyaoling&#39;s Blog</title>
+        <link>http://localhost:1313/writing-blog/tags/</link>
+        <description>Tags - Tag - Xiheyaoling&#39;s Blog</description>
+        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>xiheyaoling@gmail.com (xiheyaoling)</managingEditor>
+            <webMaster>xiheyaoling@gmail.com (xiheyaoling)</webMaster><atom:link href="http://localhost:1313/writing-blog/tags/" rel="self" type="application/rss+xml" /></channel>
 </rss>

@@ -1,20 +1,8 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>Posts on Xiheyaoling</title>
-    <link>http://localhost:1313/writing-blog/posts/</link>
-    <description>Recent content in Posts on Xiheyaoling</description>
-    <generator>Hugo</generator>
-    <language>zh-cn</language>
-    <copyright>&amp;copy; 2017. All rights reserved.</copyright>
-    <lastBuildDate>Mon, 30 Dec 2024 21:57:22 +0800</lastBuildDate>
-    <atom:link href="http://localhost:1313/writing-blog/posts/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>My First Post</title>
-      <link>http://localhost:1313/writing-blog/posts/my-first-post/</link>
-      <pubDate>Mon, 30 Dec 2024 21:57:22 +0800</pubDate>
-      <guid>http://localhost:1313/writing-blog/posts/my-first-post/</guid>
-      <description>Start 开始写blog，希望能坚持下去！</description>
-    </item>
-  </channel>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>All Posts - Xiheyaoling&#39;s Blog</title>
+        <link>http://localhost:1313/writing-blog/posts/</link>
+        <description>All Posts | Xiheyaoling&#39;s Blog</description>
+        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>xiheyaoling@gmail.com (xiheyaoling)</managingEditor>
+            <webMaster>xiheyaoling@gmail.com (xiheyaoling)</webMaster><lastBuildDate>Mon, 14 Apr 2025 14:50:59 &#43;0800</lastBuildDate><atom:link href="http://localhost:1313/writing-blog/posts/" rel="self" type="application/rss+xml" /></channel>
 </rss>
