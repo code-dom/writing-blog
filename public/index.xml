@@ -4,7 +4,31 @@
         <link>http://localhost:1313/writing-blog/</link>
         <description>学习记录、分享</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>xiheyaoling@gmail.com (xiheyaoling)</managingEditor>
-            <webMaster>xiheyaoling@gmail.com (xiheyaoling)</webMaster><lastBuildDate>Mon, 14 Apr 2025 14:50:59 &#43;0800</lastBuildDate>
+            <webMaster>xiheyaoling@gmail.com (xiheyaoling)</webMaster><lastBuildDate>Sun, 17 Aug 2025 13:04:40 &#43;0800</lastBuildDate>
             <atom:link href="http://localhost:1313/writing-blog/index.xml" rel="self" type="application/rss+xml" />
-        </channel>
+        <item>
+    <title>Hugo使用</title>
+    <link>http://localhost:1313/writing-blog/hugo%E4%BD%BF%E7%94%A8/</link>
+    <pubDate>Sun, 17 Aug 2025 13:04:40 &#43;0800</pubDate>
+    <author>xiheyaoling</author>
+    <guid>http://localhost:1313/writing-blog/hugo%E4%BD%BF%E7%94%A8/</guid>
+    <description><![CDATA[]]></description>
+</item>
+<item>
+    <title>虚拟内存和物理内存</title>
+    <link>http://localhost:1313/writing-blog/%E8%99%9A%E6%8B%9F%E5%86%85%E5%AD%98%E5%92%8C%E7%89%A9%E7%90%86%E5%86%85%E5%AD%98/</link>
+    <pubDate>Mon, 14 Apr 2025 14:50:59 &#43;0800</pubDate>
+    <author>xiheyaoling</author>
+    <guid>http://localhost:1313/writing-blog/%E8%99%9A%E6%8B%9F%E5%86%85%E5%AD%98%E5%92%8C%E7%89%A9%E7%90%86%E5%86%85%E5%AD%98/</guid>
+    <description><![CDATA[]]></description>
+</item>
+<item>
+    <title>My First Post</title>
+    <link>http://localhost:1313/writing-blog/my-first-post/</link>
+    <pubDate>Mon, 30 Dec 2024 21:57:22 &#43;0800</pubDate>
+    <author>xiheyaoling</author>
+    <guid>http://localhost:1313/writing-blog/my-first-post/</guid>
+    <description><![CDATA[Start 开始写blog，希望能坚持下去！]]></description>
+</item>
+</channel>
 </rss>

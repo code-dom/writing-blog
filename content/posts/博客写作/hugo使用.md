@@ -1,11 +1,12 @@
 ---
-title: "虚拟内存和物理内存"
+
+title: "Hugo使用"
 subtitle: ""
-date: 2025-04-14T14:50:59+08:00
+date: 2025-08-17T13:04:40+08:00
 draft: true
 
-tags: ["操作系统"]
-categories: [计算机基础]
+tags: []
+categories: []
 
 hiddenFromHomePage: false
 hiddenFromSearch: false

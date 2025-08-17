@@ -4,5 +4,13 @@
         <link>http://localhost:1313/writing-blog/categories/</link>
         <description>Categories - Category - Xiheyaoling&#39;s Blog</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>xiheyaoling@gmail.com (xiheyaoling)</managingEditor>
-            <webMaster>xiheyaoling@gmail.com (xiheyaoling)</webMaster><atom:link href="http://localhost:1313/writing-blog/categories/" rel="self" type="application/rss+xml" /></channel>
+            <webMaster>xiheyaoling@gmail.com (xiheyaoling)</webMaster><lastBuildDate>Mon, 14 Apr 2025 14:50:59 &#43;0800</lastBuildDate><atom:link href="http://localhost:1313/writing-blog/categories/" rel="self" type="application/rss+xml" /><item>
+    <title>计算机基础</title>
+    <link>http://localhost:1313/writing-blog/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/</link>
+    <pubDate>Mon, 14 Apr 2025 14:50:59 &#43;0800</pubDate>
+    <author>xiheyaoling</author>
+    <guid>http://localhost:1313/writing-blog/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/</guid>
+    <description><![CDATA[]]></description>
+</item>
+</channel>
 </rss>
