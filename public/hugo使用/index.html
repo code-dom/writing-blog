@@ -7,7 +7,7 @@
         <title>Hugo使用 - Xiheyaoling&#39;s Blog</title><meta name="Description" content="学习记录、分享"><meta property="og:url" content="http://localhost:1313/writing-blog/hugo%E4%BD%BF%E7%94%A8/">
   <meta property="og:site_name" content="Xiheyaoling&#39;s Blog">
   <meta property="og:title" content="Hugo使用">
-  <meta property="og:description" content="学习记录、分享">
+  <meta property="og:description" content="hugo基础使用 Quick start 创建本地hugo项目，如何写blog的环境 如何写第一个blog 如何上传图片创建图床 https://www.yuhuizhen.com/2022/11/27/image-bed/ https://picgo.github.io/PicGo-Doc/zh/guide/config.html#github%E5%9B%BE%E5%BA%8A https://zhuanlan.zhihu.com/p/340760172 github pages托管hugo 参考链接">
   <meta property="og:locale" content="zh_CN">
   <meta property="og:type" content="article">
     <meta property="article:section" content="posts">
@@ -18,7 +18,7 @@
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:image" content="http://localhost:1313/logo.png">
   <meta name="twitter:title" content="Hugo使用">
-  <meta name="twitter:description" content="学习记录、分享">
+  <meta name="twitter:description" content="hugo基础使用 Quick start 创建本地hugo项目，如何写blog的环境 如何写第一个blog 如何上传图片创建图床 https://www.yuhuizhen.com/2022/11/27/image-bed/ https://picgo.github.io/PicGo-Doc/zh/guide/config.html#github%E5%9B%BE%E5%BA%8A https://zhuanlan.zhihu.com/p/340760172 github pages托管hugo 参考链接">
 <meta name="application-name" content="我的网站">
 <meta name="apple-mobile-web-app-title" content="我的网站">
 <meta name="referrer" content="no-referrer" /><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
@@ -34,7 +34,7 @@
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "http:\/\/localhost:1313\/writing-blog\/hugo%E4%BD%BF%E7%94%A8\/"
-        },"genre": "posts","wordcount":  0 ,
+        },"genre": "posts","wordcount":  175 ,
         "url": "http:\/\/localhost:1313\/writing-blog\/hugo%E4%BD%BF%E7%94%A8\/","datePublished": "2025-08-17T13:04:40+08:00","dateModified": "2025-08-17T13:04:40+08:00","publisher": {
             "@type": "Organization",
             "name": ""},"author": {
@@ -108,15 +108,67 @@
             <div class="toc-content" id="toc-content-auto"></div>
         </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">Hugo使用</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="/writing-blog/" title="Author" rel="author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>xiheyaoling</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2025-08-17">2025-08-17</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;0 words&nbsp;
-                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;0 minutes&nbsp;</div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2025-08-17">2025-08-17</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;175 words&nbsp;
+                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;One minute&nbsp;</div>
         </div><div class="details toc" id="toc-static"  data-kept="">
                 <div class="details-summary toc-title">
                     <span>Contents</span>
                     <span><i class="details-icon fas fa-angle-right" aria-hidden="true"></i></span>
                 </div>
-                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents"></nav></div>
-            </div><div class="content" id="content"></div><div class="post-footer" id="post-footer">
+                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#quick-start">Quick start</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav></div>
+            </div><div class="content" id="content"><ul>
+<li><i class="far fa-square fa-fw" aria-hidden="true"></i> hugo基础使用
+<ul>
+<li><i class="far fa-square fa-fw" aria-hidden="true"></i> Quick start
+<ul>
+<li><i class="far fa-check-square fa-fw" aria-hidden="true"></i> 创建本地hugo项目，如何写blog的环境</li>
+<li><i class="far fa-check-square fa-fw" aria-hidden="true"></i> 如何写第一个blog</li>
+<li><i class="far fa-square fa-fw" aria-hidden="true"></i> 如何上传图片创建图床
+<ul>
+<li><i class="far fa-square fa-fw" aria-hidden="true"></i> <a href="https://www.yuhuizhen.com/2022/11/27/image-bed/" target="_blank" rel="noopener noreffer ">https://www.yuhuizhen.com/2022/11/27/image-bed/</a></li>
+<li><i class="far fa-square fa-fw" aria-hidden="true"></i> <a href="https://picgo.github.io/PicGo-Doc/zh/guide/config.html#github%E5%9B%BE%E5%BA%8A" target="_blank" rel="noopener noreffer ">https://picgo.github.io/PicGo-Doc/zh/guide/config.html#github%E5%9B%BE%E5%BA%8A</a></li>
+<li><i class="far fa-square fa-fw" aria-hidden="true"></i> <a href="https://zhuanlan.zhihu.com/p/340760172" target="_blank" rel="noopener noreffer ">https://zhuanlan.zhihu.com/p/340760172</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><i class="far fa-square fa-fw" aria-hidden="true"></i> github pages托管hugo
+<ul>
+<li><a href="http://hugo.opendocs.io/hosting-and-deployment/hosting-on-github/" target="_blank" rel="noopener noreffer ">参考链接</a></li>
+</ul>
+</li>
+<li><i class="far fa-square fa-fw" aria-hidden="true"></i> 进阶
+<ul>
+<li><i class="far fa-square fa-fw" aria-hidden="true"></i> hugo主题设置、分类设置等
+<ul>
+<li><i class="far fa-square fa-fw" aria-hidden="true"></i> 如何组</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h1 id="hugo基础使用">hugo基础使用</h1>
+<p>前提：安装hugo，<a href="https://hugo.opendocs.io/installation/" target="_blank" rel="noopener noreffer ">官网链接</a>，自行根据自己电脑系统进行选择</p>
+<h3 id="quick-start">Quick start</h3>
+<p>1.创建项目</p>
+<p><code>hugo new site 目录名</code></p>
+<img src="https://cdn.jsdelivr.net/gh/code-dom/picGo/img/202508181933604.png" alt="image-20250818193352473" style="zoom:50%;" />
+<p>2.创建具体blog</p>
+<p><code>hugo new xxx.md</code></p>
+<p>在文档中撰写blog内容</p>
+<p>3.预览blog</p>
+<p><code>hugo ser</code></p>
+</div><div class="post-footer" id="post-footer">
     <div class="post-info">
         <div class="post-info-line">
             <div class="post-info-mod">
