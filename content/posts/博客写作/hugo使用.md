@@ -1,12 +1,11 @@
 ---
-
 title: "Hugo使用"
 subtitle: ""
 date: 2025-08-17T13:04:40+08:00
 draft: false
 
 tags: []
-categories: []
+categories: [工具]
 
 hiddenFromHomePage: false
 hiddenFromSearch: false
@@ -59,8 +58,6 @@ theme = "even"
 ```
 
 这样主题就安装好了。
-
-
 
 ## 如何使用github托管blog
 
