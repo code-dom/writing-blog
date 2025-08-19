@@ -10,7 +10,7 @@
     <pubDate>Sun, 17 Aug 2025 13:04:40 &#43;0800</pubDate>
     <author>xiheyaoling</author>
     <guid>http://localhost:1313/writing-blog/hugo%E4%BD%BF%E7%94%A8/</guid>
-    <description><![CDATA[hugo基础使用 Quick start 创建本地hugo项目，如何写blog的环境 如何写第一个blog github pages托管hugo 参考链接 进阶 hugo主题设置、分类]]></description>
+    <description><![CDATA[前置项 前提：安装hugo，官网链接，自行根据自己电脑系统进行选择 Quick start 1.创建项目 hugo new site 目录名 2.创建具体blog hugo new xxx.md 在文档中撰写blog内]]></description>
 </item>
 <item>
     <title>虚拟内存和物理内存</title>
