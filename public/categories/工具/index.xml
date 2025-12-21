@@ -1,0 +1,16 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>工具 - Category - Xiheyaoling&#39;s Blog</title>
+        <link>http://localhost:1313/writing-blog/categories/%E5%B7%A5%E5%85%B7/</link>
+        <description>工具 - Category - Xiheyaoling&#39;s Blog</description>
+        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>xiheyaoling@gmail.com (xiheyaoling)</managingEditor>
+            <webMaster>xiheyaoling@gmail.com (xiheyaoling)</webMaster><lastBuildDate>Sun, 17 Aug 2025 13:04:40 &#43;0800</lastBuildDate><atom:link href="http://localhost:1313/writing-blog/categories/%E5%B7%A5%E5%85%B7/" rel="self" type="application/rss+xml" /><item>
+    <title>Hugo使用</title>
+    <link>http://localhost:1313/writing-blog/hugo%E4%BD%BF%E7%94%A8/</link>
+    <pubDate>Sun, 17 Aug 2025 13:04:40 &#43;0800</pubDate>
+    <author>xiheyaoling</author>
+    <guid>http://localhost:1313/writing-blog/hugo%E4%BD%BF%E7%94%A8/</guid>
+    <description><![CDATA[前置项 前提：安装hugo，官网链接，自行根据自己电脑系统进行选择 Quick start 1.创建项目 hugo new site 目录名 2.创建具体blog hugo new xxx.md 在文档中撰写blog内]]></description>
+</item>
+</channel>
+</rss>

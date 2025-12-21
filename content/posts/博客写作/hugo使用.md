@@ -89,4 +89,4 @@ https://picgo.github.io/PicGo-Doc/zh/guide/config.html
 
 https://zhuanlan.zhihu.com/p/340760172
 
-**切换主题**可参考：https://jellyzhang.github.io/%E4%BD%BF%E7%94%A8hugo%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/
+**切换主题**可参考：[使用hugo搭建博客](https://jellyzhang.github.io/%E4%BD%BF%E7%94%A8hugo%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/)
