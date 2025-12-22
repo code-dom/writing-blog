@@ -34,7 +34,7 @@
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "http:\/\/localhost:1313\/writing-blog\/windows%E4%BD%BF%E7%94%A8docker%E9%83%A8%E7%BD%B2%E4%B8%AD%E9%97%B4%E4%BB%B6\/"
-        },"genre": "posts","wordcount":  2031 ,
+        },"genre": "posts","wordcount":  2028 ,
         "url": "http:\/\/localhost:1313\/writing-blog\/windows%E4%BD%BF%E7%94%A8docker%E9%83%A8%E7%BD%B2%E4%B8%AD%E9%97%B4%E4%BB%B6\/","datePublished": "2025-12-21T22:03:51+08:00","dateModified": "2025-12-21T22:03:51+08:00","publisher": {
             "@type": "Organization",
             "name": ""},"author": {
@@ -108,7 +108,7 @@
             <div class="toc-content" id="toc-content-auto"></div>
         </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">Windows使用docker部署中间件</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="/writing-blog/" title="Author" rel="author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>xiheyaoling</a></span>&nbsp;<span class="post-category">included in <a href="/writing-blog/categories/%E9%A1%B9%E7%9B%AE%E5%BC%80%E5%8F%91/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>项目开发</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2025-12-21">2025-12-21</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;2031 words&nbsp;
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2025-12-21">2025-12-21</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;2028 words&nbsp;
                 <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;5 minutes&nbsp;</div>
         </div><div class="details toc" id="toc-static"  data-kept="">
                 <div class="details-summary toc-title">
@@ -153,7 +153,7 @@
 <p><strong>受限于现有设备的硬件性能</strong>（一台 M1/8G Mac 和一台 i3-9100f/8G Windows），在开发应用时我遇到了明显的瓶颈。尤其是当需要同时运行 MySQL、Redis、Kafka、Elasticsearch 等多个中间件，再启动 Web 应用时，<strong>单台设备的 CPU 和内存资源均难以独立支撑</strong>。</p>
 <p>因此，我计划将 Windows 台式机作为<strong>专用的中间件服务器</strong>，通过 Docker 部署所有依赖服务，而 Mac 仅专注于代码编写与应用运行，以此分担负载，实现流畅开发。</p>
 <h1 id="总览">总览</h1>
-<span id="id-1">client可以ping通server -&gt; client正常访问server的某些端口 -&gt; server正常部署、本机访问正常 -&gt; client访问server中间件</span>
+<p><span style="color:red; font-weight:bold">client可以ping通server -&gt; client正常访问server的某些端口 -&gt; server正常部署、本机访问正常 -&gt; client访问server中间件</span></p>
 <h1 id="保证连通性">保证连通性</h1>
 <h2 id="内网穿透">内网穿透</h2>
 <p>选择一个内网穿透工具，我使用的Tailscale，官方服务器帮助打洞，无需涉及网络底层，只需要在需要互相访问的电脑上登陆Tailscale即可获得一个互相访问的IP。</p>
@@ -230,12 +230,11 @@
         <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
         <span class="copy" title="Copy to clipboard"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
     </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">video_kafka</span><span class="p">:</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="c"># 使用 Apache 官方镜像，3.9.0 版本默认使用 KRaft 模式（不再依赖 Zookeeper）</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">​    image</span><span class="p">:</span><span class="w"> </span><span class="l">apache/kafka:3.9.0</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">     </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l">apache/kafka:3.9.0</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="c"># 指定容器的主机名和容器名，方便 Docker 内部的其他容器（如 kafka-ui）通过名字访问它</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">​    hostname</span><span class="p">:</span><span class="w"> </span><span class="l">video_kafka</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">​    container_name</span><span class="p">:</span><span class="w"> </span><span class="l">video_kafka</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">     </span><span class="nt">hostname</span><span class="p">:</span><span class="w"> </span><span class="l">video_kafka</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">	 	 </span><span class="nt">container_name</span><span class="p">:</span><span class="w"> </span><span class="l">video_kafka</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">ports</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="c"># 【外部访问端口】</span><span class="w">
@@ -296,7 +295,6 @@
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">volumes</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="c"># 数据持久化挂载：防止容器删除后数据丢失</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="l">./deploy/data/kafka/data:/var/lib/kafka/data</span></span></span></code></pre></div></div>
-
 </div><div class="post-footer" id="post-footer">
     <div class="post-info">
         <div class="post-info-line">

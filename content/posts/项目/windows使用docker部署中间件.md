@@ -27,7 +27,7 @@ license: '<a rel="license external nofollow noopener noreffer" href="https://cre
 
 # 总览
 
-{{< style "color: red; font-weight: bold;" "span" >}}client可以ping通server -> client正常访问server的某些端口 -> server正常部署、本机访问正常 -> client访问server中间件{{< /style >}}
+<span style="color:red; font-weight:bold">client可以ping通server -> client正常访问server的某些端口 -> server正常部署、本机访问正常 -> client访问server中间件</span>
 
 # 保证连通性
 
@@ -128,14 +128,14 @@ PLAINTEXT_EXTERNAL不能为0.0.0.0，我直接改成Windows 的IP（内网穿透
 
 #### docker-compose.yaml
 
-{{< highlight "yaml">}}
-video_kafka:
 
+```yaml
+video_kafka:
     # 使用 Apache 官方镜像，3.9.0 版本默认使用 KRaft 模式（不再依赖 Zookeeper）
-​    image: apache/kafka:3.9.0
+     image: apache/kafka:3.9.0
     # 指定容器的主机名和容器名，方便 Docker 内部的其他容器（如 kafka-ui）通过名字访问它
-​    hostname: video_kafka
-​    container_name: video_kafka
+     hostname: video_kafka
+	 	 container_name: video_kafka
 
     ports:
       # 【外部访问端口】
@@ -196,4 +196,4 @@ video_kafka:
     volumes:
       # 数据持久化挂载：防止容器删除后数据丢失
       - ./deploy/data/kafka/data:/var/lib/kafka/data
-{{</highlight>}}
+```
