@@ -19,19 +19,19 @@ license: '<a rel="license external nofollow noopener noreffer" href="https://cre
 
 ------
 
-# 背景
+## 背景
 
 **受限于现有设备的硬件性能**（一台 M1/8G Mac 和一台 i3-9100f/8G Windows），在开发应用时我遇到了明显的瓶颈。尤其是当需要同时运行 MySQL、Redis、Kafka、Elasticsearch 等多个中间件，再启动 Web 应用时，**单台设备的 CPU 和内存资源均难以独立支撑**。
 
 因此，我计划将 Windows 台式机作为**专用的中间件服务器**，通过 Docker 部署所有依赖服务，而 Mac 仅专注于代码编写与应用运行，以此分担负载，实现流畅开发。
 
-# 总览
+## 总览
 
 <span style="color:red; font-weight:bold">client可以ping通server -> client正常访问server的某些端口 -> server正常部署、本机访问正常 -> client访问server中间件</span>
 
-# 保证连通性
+## 保证连通性
 
-## 内网穿透
+### 内网穿透
 
 选择一个内网穿透工具，我使用的Tailscale，官方服务器帮助打洞，无需涉及网络底层，只需要在需要互相访问的电脑上登陆Tailscale即可获得一个互相访问的IP。
 
@@ -87,7 +87,7 @@ func main() {
 
 1. 通过测试应用测试时，**如果弹出允许程序接受传入网络连接选了接受**，那么不用开启防火墙也能访问到该程序。反之，如果拒绝了就需要防火墙有其他准入的规则。**为了测试防火墙规则是否正常，选择拒绝**。
 
-# windows使用docker部署中间件
+## windows使用docker部署中间件
 
 我使用docker-compose部署多个中间件。经过上面的联通，只要docker部署正常就可以访问到（但是windows docker似乎有点bug，我一开始连通正常但一直访问不到mysql等的端口，后面重启后过了一天就好了）。
 
@@ -96,9 +96,9 @@ ps：
 1. `docker-compose up -d --force-recreate`重启并使修改后的配置生效。
 2. windows的docker有个bug，使用`netstat -an | findStr "3306"`找不到docker接受的端口。
 
-## 测试+遇到的bug
+### 测试+遇到的bug
 
-### mysql
+#### mysql
 
 直接使用`mysql -h 100.82.159.69 -P 3309 -uroot -p`进行连接测试。
 
@@ -106,17 +106,17 @@ ps：
 
 1. **mysql可能有些奇怪的问题，可以删除挂载卷对应的本机文件进行完全重制。**
 
-#### ERROR 1130
+##### ERROR 1130
 
 `ERROR 1130 (HY000): Host '172.18.0.1' is not allowed to connect to this MySQL server`
 
 这个是因为我在docker里使用mysql_native_password认证，但是mac中的mysql是9点几，不支持这个插件。只需要在docker里修改使用更新的，例如mysql8默认的caching_sha2_password。
 
-### Kafka
+#### Kafka
 
 我是直接启动web应用测试的。
 
-#### advertised.listeners里不能出现0.0.0.0
+##### advertised.listeners里不能出现0.0.0.0
 
 如果出现，客户端拿到这个“不可路由”地址后就不知道该连那一台机器。
 
@@ -126,7 +126,7 @@ PLAINTEXT_EXTERNAL不能为0.0.0.0，我直接改成Windows 的IP（内网穿透
 
 因为KAFKA_ADVERTISED_LISTENERS就是告诉客户端去哪找本机的kafka
 
-#### docker-compose.yaml
+##### docker-compose.yaml
 
 
 ```yaml
