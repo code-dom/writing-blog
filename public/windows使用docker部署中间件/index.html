@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head><script src="/writing-blog/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=writing-blog/livereload" data-no-instant defer></script>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <title>Windows使用docker部署中间件 - Xiheyaoling&#39;s Blog</title><meta name="Description" content="学习记录、分享"><meta property="og:url" content="http://localhost:1313/writing-blog/windows%E4%BD%BF%E7%94%A8docker%E9%83%A8%E7%BD%B2%E4%B8%AD%E9%97%B4%E4%BB%B6/">
+  <meta property="og:site_name" content="Xiheyaoling&#39;s Blog">
+  <meta property="og:title" content="Windows使用docker部署中间件">
+  <meta property="og:description" content="背景 受限于现有设备的硬件性能（一台 M1/8G Mac 和一台 i3-9100f/8G Windows），在开发应用时我遇到了明显的瓶颈。尤其是当需要同时运行 MySQL、Redis、">
+  <meta property="og:locale" content="zh_CN">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2025-12-21T22:03:51+08:00">
+    <meta property="article:modified_time" content="2025-12-21T22:03:51+08:00">
+    <meta property="og:image" content="http://localhost:1313/logo.png">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="http://localhost:1313/logo.png">
+  <meta name="twitter:title" content="Windows使用docker部署中间件">
+  <meta name="twitter:description" content="背景 受限于现有设备的硬件性能（一台 M1/8G Mac 和一台 i3-9100f/8G Windows），在开发应用时我遇到了明显的瓶颈。尤其是当需要同时运行 MySQL、Redis、">
+<meta name="application-name" content="我的网站">
+<meta name="apple-mobile-web-app-title" content="我的网站">
+<meta name="referrer" content="no-referrer" /><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="http://localhost:1313/writing-blog/windows%E4%BD%BF%E7%94%A8docker%E9%83%A8%E7%BD%B2%E4%B8%AD%E9%97%B4%E4%BB%B6/" /><link rel="prev" href="http://localhost:1313/writing-blog/hugo%E4%BD%BF%E7%94%A8/" /><link rel="stylesheet" href="/writing-blog/css/style.min.css"><link rel="preload" href="/writing-blog/lib/fontawesome-free/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="/writing-blog/lib/fontawesome-free/css/all.min.css"></noscript><link rel="preload" href="/writing-blog/lib/animate/animate.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="/writing-blog/lib/animate/animate.min.css"></noscript><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "Windows使用docker部署中间件",
+        "inLanguage": "zh-CN",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "http:\/\/localhost:1313\/writing-blog\/windows%E4%BD%BF%E7%94%A8docker%E9%83%A8%E7%BD%B2%E4%B8%AD%E9%97%B4%E4%BB%B6\/"
+        },"genre": "posts","wordcount":  2031 ,
+        "url": "http:\/\/localhost:1313\/writing-blog\/windows%E4%BD%BF%E7%94%A8docker%E9%83%A8%E7%BD%B2%E4%B8%AD%E9%97%B4%E4%BB%B6\/","datePublished": "2025-12-21T22:03:51+08:00","dateModified": "2025-12-21T22:03:51+08:00","publisher": {
+            "@type": "Organization",
+            "name": ""},"author": {
+                "@type": "Person",
+                "name": "xiheyaoling"
+            },"description": ""
+    }
+    </script></head>
+    <body data-header-desktop="fixed" data-header-mobile="auto"><script>(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('auto' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'auto' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/writing-blog/" title="Xiheyaoling&#39;s Blog"></a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/writing-blog/"><i class='fa fa-home fa-fw'></i>  </a><a class="menu-item" href="/writing-blog/posts/"> 文章 </a><a class="menu-item" href="/writing-blog/tags/"> 标签 </a><a class="menu-item" href="/writing-blog/categories/"> 分类 </a><span class="menu-item delimiter"></span><span class="menu-item search" id="search-desktop">
+                        <input type="text" placeholder="Search titles or contents..." id="search-input-desktop">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="Search">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="Clear">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-desktop">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </span><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
+                    <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+                </a></div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/writing-blog/" title="Xiheyaoling&#39;s Blog"></a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><div class="search-wrapper">
+                    <div class="search mobile" id="search-mobile">
+                        <input type="text" placeholder="Search titles or contents..." id="search-input-mobile">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="Search">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="Clear">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-mobile">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </div>
+                    <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+                        Cancel
+                    </a>
+                </div><a class="menu-item" href="/writing-blog/" title=""><i class='fa fa-home fa-fw'></i></a><a class="menu-item" href="/writing-blog/posts/" title="">文章</a><a class="menu-item" href="/writing-blog/tags/" title="">标签</a><a class="menu-item" href="/writing-blog/categories/" title="">分类</a><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
+                <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+            </a></div>
+    </div>
+</header><div class="search-dropdown desktop">
+        <div id="search-dropdown-desktop"></div>
+    </div>
+    <div class="search-dropdown mobile">
+        <div id="search-dropdown-mobile"></div>
+    </div><main class="main">
+                <div class="container"><div class="toc" id="toc-auto">
+            <h2 class="toc-title">Contents</h2>
+            <div class="toc-content" id="toc-content-auto"></div>
+        </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">Windows使用docker部署中间件</h1><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="/writing-blog/" title="Author" rel="author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>xiheyaoling</a></span>&nbsp;<span class="post-category">included in <a href="/writing-blog/categories/%E9%A1%B9%E7%9B%AE%E5%BC%80%E5%8F%91/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>项目开发</a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2025-12-21">2025-12-21</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;2031 words&nbsp;
+                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;5 minutes&nbsp;</div>
+        </div><div class="details toc" id="toc-static"  data-kept="">
+                <div class="details-summary toc-title">
+                    <span>Contents</span>
+                    <span><i class="details-icon fas fa-angle-right" aria-hidden="true"></i></span>
+                </div>
+                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#内网穿透">内网穿透</a></li>
+    <li><a href="#防火墙windows版">防火墙（windows版）</a>
+      <ul>
+        <li><a href="#开启防火墙">开启防火墙</a></li>
+        <li><a href="#测试防火墙">测试防火墙</a>
+          <ul>
+            <li><a href="#ps"><strong>Ps</strong></a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+  </ul>
+
+  <ul>
+    <li><a href="#测试遇到的bug">测试+遇到的bug</a>
+      <ul>
+        <li><a href="#mysql">mysql</a>
+          <ul>
+            <li><a href="#error-1130">ERROR 1130</a></li>
+          </ul>
+        </li>
+        <li><a href="#kafka">Kafka</a>
+          <ul>
+            <li><a href="#advertisedlisteners里不能出现0000">advertised.listeners里不能出现0.0.0.0</a></li>
+            <li><a href="#docker-composeyaml">docker-compose.yaml</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</nav></div>
+            </div><div class="content" id="content"><hr>
+<h1 id="背景">背景</h1>
+<p><strong>受限于现有设备的硬件性能</strong>（一台 M1/8G Mac 和一台 i3-9100f/8G Windows），在开发应用时我遇到了明显的瓶颈。尤其是当需要同时运行 MySQL、Redis、Kafka、Elasticsearch 等多个中间件，再启动 Web 应用时，<strong>单台设备的 CPU 和内存资源均难以独立支撑</strong>。</p>
+<p>因此，我计划将 Windows 台式机作为<strong>专用的中间件服务器</strong>，通过 Docker 部署所有依赖服务，而 Mac 仅专注于代码编写与应用运行，以此分担负载，实现流畅开发。</p>
+<h1 id="总览">总览</h1>
+<span id="id-1">client可以ping通server -&gt; client正常访问server的某些端口 -&gt; server正常部署、本机访问正常 -&gt; client访问server中间件</span>
+<h1 id="保证连通性">保证连通性</h1>
+<h2 id="内网穿透">内网穿透</h2>
+<p>选择一个内网穿透工具，我使用的Tailscale，官方服务器帮助打洞，无需涉及网络底层，只需要在需要互相访问的电脑上登陆Tailscale即可获得一个互相访问的IP。</p>
+<p><strong>使用<code>ping IP</code>检测是否联通，如果出现问题，应是内网穿透工具的问题，请先解决该问题再继续。</strong></p>
+<h2 id="防火墙windows版">防火墙（windows版）</h2>
+<h3 id="开启防火墙">开启防火墙</h3>
+<p>通过内网穿透工具我们可以从其他设备访问到自己的服务器，本次使用的是windows作为服务器。</p>
+<p>按下面的图示从控制面板找到防火墙设置，然后新增<strong>入站规则</strong>。</p>
+<img src="https://cdn.jsdelivr.net/gh/code-dom/picGo/img/202512221026275.png" alt="图1" style="zoom:50%;" />
+<img src="https://cdn.jsdelivr.net/gh/code-dom/picGo/img/202512221029228.png" alt="图2" style="zoom:50%;" />
+<h3 id="测试防火墙">测试防火墙</h3>
+<p>写一个简单的go测试脚本</p>
+<div class="code-block code-line-numbers" style="counter-reset: code-block 0">
+    <div class="code-header language-go">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copy to clipboard"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="kn">package</span> <span class="nx">main</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="p">(</span>
+</span></span><span class="line"><span class="cl">	<span class="s">&#34;fmt&#34;</span>
+</span></span><span class="line"><span class="cl">	<span class="s">&#34;net&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">ln</span><span class="p">,</span> <span class="nx">err</span> <span class="o">:=</span> <span class="nx">net</span><span class="p">.</span><span class="nf">Listen</span><span class="p">(</span><span class="s">&#34;tcp&#34;</span><span class="p">,</span> <span class="s">&#34;0.0.0.0:3303&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">	<span class="k">if</span> <span class="nx">err</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">		<span class="nb">panic</span><span class="p">(</span><span class="nx">err</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">	<span class="p">}</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;Listening on 0.0.0.0:3303&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">	<span class="k">for</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">		<span class="nx">conn</span><span class="p">,</span> <span class="nx">err</span> <span class="o">:=</span> <span class="nx">ln</span><span class="p">.</span><span class="nf">Accept</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">		<span class="k">if</span> <span class="nx">err</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">			<span class="k">continue</span>
+</span></span><span class="line"><span class="cl">			<span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;[Error]&#34;</span><span class="p">,</span> <span class="nx">err</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">		<span class="p">}</span>
+</span></span><span class="line"><span class="cl">		<span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;[Success] Connected from %s\n&#34;</span><span class="p">,</span> <span class="nx">conn</span><span class="p">.</span><span class="nf">RemoteAddr</span><span class="p">())</span>
+</span></span><span class="line"><span class="cl">		<span class="nx">conn</span><span class="p">.</span><span class="nf">Write</span><span class="p">([]</span><span class="nb">byte</span><span class="p">(</span><span class="s">&#34;hello from mac\n&#34;</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">		<span class="nx">conn</span><span class="p">.</span><span class="nf">Close</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">	<span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span></span></span></code></pre></div></div>
+<h4 id="ps"><strong>Ps</strong></h4>
+<ol>
+<li>通过测试应用测试时，<strong>如果弹出允许程序接受传入网络连接选了接受</strong>，那么不用开启防火墙也能访问到该程序。反之，如果拒绝了就需要防火墙有其他准入的规则。<strong>为了测试防火墙规则是否正常，选择拒绝</strong>。</li>
+</ol>
+<h1 id="windows使用docker部署中间件">windows使用docker部署中间件</h1>
+<p>我使用docker-compose部署多个中间件。经过上面的联通，只要docker部署正常就可以访问到（但是windows docker似乎有点bug，我一开始连通正常但一直访问不到mysql等的端口，后面重启后过了一天就好了）。</p>
+<p>ps：</p>
+<ol>
+<li><code>docker-compose up -d --force-recreate</code>重启并使修改后的配置生效。</li>
+<li>windows的docker有个bug，使用<code>netstat -an | findStr &quot;3306&quot;</code>找不到docker接受的端口。</li>
+</ol>
+<h2 id="测试遇到的bug">测试+遇到的bug</h2>
+<h3 id="mysql">mysql</h3>
+<p>直接使用<code>mysql -h 100.82.159.69 -P 3309 -uroot -p</code>进行连接测试。</p>
+<p>ps：</p>
+<ol>
+<li><strong>mysql可能有些奇怪的问题，可以删除挂载卷对应的本机文件进行完全重制。</strong></li>
+</ol>
+<h4 id="error-1130">ERROR 1130</h4>
+<p><code>ERROR 1130 (HY000): Host '172.18.0.1' is not allowed to connect to this MySQL server</code></p>
+<p>这个是因为我在docker里使用mysql_native_password认证，但是mac中的mysql是9点几，不支持这个插件。只需要在docker里修改使用更新的，例如mysql8默认的caching_sha2_password。</p>
+<h3 id="kafka">Kafka</h3>
+<p>我是直接启动web应用测试的。</p>
+<h4 id="advertisedlisteners里不能出现0000">advertised.listeners里不能出现0.0.0.0</h4>
+<p>如果出现，客户端拿到这个“不可路由”地址后就不知道该连那一台机器。</p>
+<p><code>KAFKA_ADVERTISED_LISTENERS: PLAINTEXT_INTERNAL://video_kafka:9092,PLAINTEXT_EXTERNAL://100.82.159.69:9094</code></p>
+<p>PLAINTEXT_EXTERNAL不能为0.0.0.0，我直接改成Windows 的IP（内网穿透的），然后就可以正常使用。</p>
+<p>因为KAFKA_ADVERTISED_LISTENERS就是告诉客户端去哪找本机的kafka</p>
+<h4 id="docker-composeyaml">docker-compose.yaml</h4>
+<div class="code-block code-line-numbers" style="counter-reset: code-block 0">
+    <div class="code-header language-yaml">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copy to clipboard"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">video_kafka</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="c"># 使用 Apache 官方镜像，3.9.0 版本默认使用 KRaft 模式（不再依赖 Zookeeper）</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">​    image</span><span class="p">:</span><span class="w"> </span><span class="l">apache/kafka:3.9.0</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="c"># 指定容器的主机名和容器名，方便 Docker 内部的其他容器（如 kafka-ui）通过名字访问它</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">​    hostname</span><span class="p">:</span><span class="w"> </span><span class="l">video_kafka</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">​    container_name</span><span class="p">:</span><span class="w"> </span><span class="l">video_kafka</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">ports</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="c"># 【外部访问端口】</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="c"># 将宿主机(Windows)的 9094 映射到容器的 9094</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="c"># 这是你的 Mac 通过 Tailscale IP 访问 Kafka 的入口</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="s2">&#34;9094:9094&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">environment</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="c"># 【基础集群配置】</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="c"># 节点 ID，集群中每个节点必须唯一，单机版设为 1 即可</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">KAFKA_NODE_ID</span><span class="p">:</span><span class="w"> </span><span class="m">1</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="c"># 角色配置：同时作为 broker (存数据) 和 controller (管集群)，因为是单机 KRaft 模式</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">KAFKA_PROCESS_ROLES</span><span class="p">:</span><span class="w"> </span><span class="l">broker,controller</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="c"># 定义参与投票的节点列表，格式为 id@host:port</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">KAFKA_CONTROLLER_QUORUM_VOTERS</span><span class="p">:</span><span class="w"> </span><span class="m">1</span>@<span class="l">video_kafka:9093</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="c"># 【监听器名称定义】</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="c"># 指定哪一个监听器是用作控制器内部通信的</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">KAFKA_CONTROLLER_LISTENER_NAMES</span><span class="p">:</span><span class="w"> </span><span class="l">CONTROLLER</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="c"># 指定哪一个监听器是用作 Broker 之间内部通信的</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">KAFKA_INTER_BROKER_LISTENER_NAME</span><span class="p">:</span><span class="w"> </span><span class="l">PLAINTEXT_INTERNAL</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="c"># 【安全协议映射】</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="c"># 定义三个通道的协议，开发环境全部使用 PLAINTEXT (明文不加密)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="c"># 1. CONTROLLER: 管理通道</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="c"># 2. PLAINTEXT_EXTERNAL: 外部连接通道 (Mac 用)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="c"># 3. PLAINTEXT_INTERNAL: 内部连接通道 (Docker 内部用)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">KAFKA_LISTENER_SECURITY_PROTOCOL_MAP</span><span class="p">:</span><span class="w"> </span><span class="l">CONTROLLER:PLAINTEXT,PLAINTEXT_EXTERNAL:PLAINTEXT,PLAINTEXT_INTERNAL:PLAINTEXT</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="c"># 【关键配置：监听地址 (Listeners)】</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="c"># Kafka 进程在容器内部实际监听的网卡和端口</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="c"># 1. 9092: 给 Docker 内部用的（绑定 0.0.0.0 代表监听所有网卡）</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="c"># 2. 9093: 给 Controller 管理用的</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="c"># 3. 9094: 给外部用的（建议绑定 0.0.0.0，确保能接收来自 Windows 端口映射的流量）</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">KAFKA_LISTENERS</span><span class="p">:</span><span class="w"> </span><span class="l">PLAINTEXT_INTERNAL://0.0.0.0:9092,CONTROLLER://video_kafka:9093,PLAINTEXT_EXTERNAL://0.0.0.0:9094</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="c"># 【关键配置：广告地址 (Advertised Listeners)】</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="c"># Kafka 告诉客户端“你应该访问哪个地址来找我”</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="c"># 1. 内部客户端（如 kafka-ui）: 告诉它访问 video_kafka:9092</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="c"># 2. 外部客户端（你的 Mac）: 告诉它访问 Windows 的 Tailscale IP + 9094</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="c"># ★★★ 请确保 100.82.159.69 是你 Windows 的 Tailscale IP ★★★</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">KAFKA_ADVERTISED_LISTENERS</span><span class="p">:</span><span class="w"> </span><span class="l">PLAINTEXT_INTERNAL://video_kafka:9092,PLAINTEXT_EXTERNAL://100.82.159.69:9094</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="c"># 【单机版防报错优化】</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="c"># 生产环境通常为 3，单机环境必须强行设为 1，否则会因为节点数不够而一直报错或无法启动</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR</span><span class="p">:</span><span class="w"> </span><span class="m">1</span><span class="w">         </span><span class="c"># 消费位移主题副本数</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">KAFKA_TRANSACTION_STATE_LOG_REPLICATION_FACTOR</span><span class="p">:</span><span class="w"> </span><span class="m">1</span><span class="w"> </span><span class="c"># 事务日志副本数</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">KAFKA_TRANSACTION_STATE_LOG_MIN_ISR</span><span class="p">:</span><span class="w"> </span><span class="m">1</span><span class="w">            </span><span class="c"># 最小同步副本数</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="c"># 【其他优化】</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="c"># 消费者组初始化延迟，设为 0 加快开发环境启动速度</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">KAFKA_GROUP_INITIAL_REBALANCE_DELAY_MS</span><span class="p">:</span><span class="w"> </span><span class="m">0</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="c"># 默认创建 Topic 时的分区数</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">KAFKA_NUM_PARTITIONS</span><span class="p">:</span><span class="w"> </span><span class="m">3</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="c"># 数据存储路径</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">KAFKA_LOG_DIRS</span><span class="p">:</span><span class="w"> </span><span class="l">/var/lib/kafka/data</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">volumes</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="c"># 数据持久化挂载：防止容器删除后数据丢失</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="l">./deploy/data/kafka/data:/var/lib/kafka/data</span></span></span></code></pre></div></div>
+
+</div><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>Updated on 2025-12-21</span>
+            </div><div class="post-info-license">
+                <span><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span>
+            </div></div>
+        <div class="post-info-line">
+            <div class="post-info-md"><span>
+                            <a class="link-to-markdown" href="/writing-blog/windows%E4%BD%BF%E7%94%A8docker%E9%83%A8%E7%BD%B2%E4%B8%AD%E9%97%B4%E4%BB%B6/index.md" target="_blank">Read Markdown</a>
+                        </span></div>
+            <div class="post-info-share">
+                <span></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"></section>
+        <section>
+            <span><a href="javascript:void(0);" onclick="window.history.back();">Back</a></span>&nbsp;|&nbsp;<span><a href="/writing-blog/">Home</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav"><a href="/writing-blog/hugo%E4%BD%BF%E7%94%A8/" class="prev" rel="prev" title="Hugo使用"><i class="fas fa-angle-left fa-fw" aria-hidden="true"></i>Hugo使用</a></div>
+</div>
+</article></div>
+            </main><footer class="footer">
+        <div class="footer-container"><div class="footer-line">Powered by <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.130.0">Hugo</a> | Theme - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.3.1-DEV"><i class="far fa-kiss-wink-heart fa-fw" aria-hidden="true"></i> LoveIt</a>
+                </div><div class="footer-line" itemscope itemtype="http://schema.org/CreativeWork"><i class="far fa-copyright fa-fw" aria-hidden="true"></i><span itemprop="copyrightYear">2019 - 2025</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="/writing-blog/" target="_blank">xiheyaoling</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span></div>
+        </div>
+    </footer></div>
+
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="Back to Top">
+                <i class="fas fa-arrow-up fa-fw" aria-hidden="true"></i>
+            </a>
+        </div>
+
+        <div id="fixed-buttons-hidden"><a href="#" id="view-comments" class="fixed-button" title="View Comments">
+                <i class="fas fa-comment fa-fw" aria-hidden="true"></i>
+            </a>
+        </div><link rel="stylesheet" href="/writing-blog/lib/katex/katex.min.css"><link rel="stylesheet" href="/writing-blog/lib/cookieconsent/cookieconsent.min.css"><script src="/writing-blog/lib/autocomplete/autocomplete.min.js"></script><script src="/writing-blog/lib/lunr/lunr.min.js"></script><script src="/writing-blog/lib/lazysizes/lazysizes.min.js"></script><script src="/writing-blog/lib/clipboard/clipboard.min.js"></script><script src="/writing-blog/lib/katex/katex.min.js"></script><script src="/writing-blog/lib/katex/contrib/auto-render.min.js"></script><script src="/writing-blog/lib/katex/contrib/copy-tex.min.js"></script><script src="/writing-blog/lib/katex/contrib/mhchem.min.js"></script><script src="/writing-blog/lib/cookieconsent/cookieconsent.min.js"></script><script>window.config={"comment":{},"cookieconsent":{"content":{"dismiss":"Got it!","link":"Learn more","message":"This website uses Cookies to improve your experience."},"enable":true,"palette":{"button":{"background":"#f0f0f0"},"popup":{"background":"#1aa3ff"}},"theme":"edgeless"},"math":{"delimiters":[{"display":true,"left":"$$","right":"$$"},{"display":true,"left":"\\[","right":"\\]"},{"display":true,"left":"\\begin{equation}","right":"\\end{equation}"},{"display":true,"left":"\\begin{equation*}","right":"\\end{equation*}"},{"display":true,"left":"\\begin{align}","right":"\\end{align}"},{"display":true,"left":"\\begin{align*}","right":"\\end{align*}"},{"display":true,"left":"\\begin{alignat}","right":"\\end{alignat}"},{"display":true,"left":"\\begin{alignat*}","right":"\\end{alignat*}"},{"display":true,"left":"\\begin{gather}","right":"\\end{gather}"},{"display":true,"left":"\\begin{CD}","right":"\\end{CD}"},{"display":false,"left":"$","right":"$"},{"display":false,"left":"\\(","right":"\\)"}],"strict":false},"search":{"highlightTag":"em","lunrIndexURL":"/writing-blog/index.json","maxResultLength":10,"noResultsFound":"No results found","snippetLength":50,"type":"lunr"}};</script><script src="/writing-blog/js/theme.min.js"></script></body>
+</html>

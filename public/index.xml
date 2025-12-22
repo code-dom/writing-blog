@@ -4,23 +4,23 @@
         <link>http://localhost:1313/writing-blog/</link>
         <description>学习记录、分享</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>xiheyaoling@gmail.com (xiheyaoling)</managingEditor>
-            <webMaster>xiheyaoling@gmail.com (xiheyaoling)</webMaster><lastBuildDate>Sun, 17 Aug 2025 13:04:40 &#43;0800</lastBuildDate>
+            <webMaster>xiheyaoling@gmail.com (xiheyaoling)</webMaster><lastBuildDate>Sun, 21 Dec 2025 22:03:51 &#43;0800</lastBuildDate>
             <atom:link href="http://localhost:1313/writing-blog/index.xml" rel="self" type="application/rss+xml" />
         <item>
+    <title>Windows使用docker部署中间件</title>
+    <link>http://localhost:1313/writing-blog/windows%E4%BD%BF%E7%94%A8docker%E9%83%A8%E7%BD%B2%E4%B8%AD%E9%97%B4%E4%BB%B6/</link>
+    <pubDate>Sun, 21 Dec 2025 22:03:51 &#43;0800</pubDate>
+    <author>xiheyaoling</author>
+    <guid>http://localhost:1313/writing-blog/windows%E4%BD%BF%E7%94%A8docker%E9%83%A8%E7%BD%B2%E4%B8%AD%E9%97%B4%E4%BB%B6/</guid>
+    <description><![CDATA[背景 受限于现有设备的硬件性能（一台 M1/8G Mac 和一台 i3-9100f/8G Windows），在开发应用时我遇到了明显的瓶颈。尤其是当需要同时运行 MySQL、Redis、]]></description>
+</item>
+<item>
     <title>Hugo使用</title>
     <link>http://localhost:1313/writing-blog/hugo%E4%BD%BF%E7%94%A8/</link>
     <pubDate>Sun, 17 Aug 2025 13:04:40 &#43;0800</pubDate>
     <author>xiheyaoling</author>
     <guid>http://localhost:1313/writing-blog/hugo%E4%BD%BF%E7%94%A8/</guid>
-    <description><![CDATA[前置项 前提：安装hugo，官网链接，自行根据自己电脑系统进行选择 Quick start 1.创建项目 hugo new site 目录名 2.创建具体blog hugo new xxx.md 在文档中撰写blog内]]></description>
-</item>
-<item>
-    <title>虚拟内存和物理内存</title>
-    <link>http://localhost:1313/writing-blog/%E8%99%9A%E6%8B%9F%E5%86%85%E5%AD%98%E5%92%8C%E7%89%A9%E7%90%86%E5%86%85%E5%AD%98/</link>
-    <pubDate>Mon, 14 Apr 2025 14:50:59 &#43;0800</pubDate>
-    <author>xiheyaoling</author>
-    <guid>http://localhost:1313/writing-blog/%E8%99%9A%E6%8B%9F%E5%86%85%E5%AD%98%E5%92%8C%E7%89%A9%E7%90%86%E5%86%85%E5%AD%98/</guid>
-    <description><![CDATA[]]></description>
+    <description><![CDATA[前置项 前提：安装hugo，官网链接，自行根据自己电脑系统进行选择 Quick start 1.创建项目 hugo new site 项目名 2.创建具体blog hugo new xxx.md 在文档中撰写blog内]]></description>
 </item>
 <item>
     <title>My First Post</title>

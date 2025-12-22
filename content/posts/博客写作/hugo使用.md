@@ -23,7 +23,7 @@ license: '<a rel="license external nofollow noopener noreffer" href="https://cre
 
 1.创建项目
 
-`hugo new site 目录名`
+`hugo new site 项目名`
 
 <img src="https://cdn.jsdelivr.net/gh/code-dom/picGo/img/202508181933604.png" alt="image-20250818193352473" style="zoom:50%;" />
 

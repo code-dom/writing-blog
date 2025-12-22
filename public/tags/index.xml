@@ -4,13 +4,5 @@
         <link>http://localhost:1313/writing-blog/tags/</link>
         <description>Tags - Tag - Xiheyaoling&#39;s Blog</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>xiheyaoling@gmail.com (xiheyaoling)</managingEditor>
-            <webMaster>xiheyaoling@gmail.com (xiheyaoling)</webMaster><lastBuildDate>Mon, 14 Apr 2025 14:50:59 &#43;0800</lastBuildDate><atom:link href="http://localhost:1313/writing-blog/tags/" rel="self" type="application/rss+xml" /><item>
-    <title>操作系统</title>
-    <link>http://localhost:1313/writing-blog/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/</link>
-    <pubDate>Mon, 14 Apr 2025 14:50:59 &#43;0800</pubDate>
-    <author>xiheyaoling</author>
-    <guid>http://localhost:1313/writing-blog/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/</guid>
-    <description><![CDATA[]]></description>
-</item>
-</channel>
+            <webMaster>xiheyaoling@gmail.com (xiheyaoling)</webMaster><atom:link href="http://localhost:1313/writing-blog/tags/" rel="self" type="application/rss+xml" /></channel>
 </rss>
