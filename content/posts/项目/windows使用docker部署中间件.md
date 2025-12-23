@@ -116,7 +116,7 @@ ps：
 
 我是直接启动web应用测试的。
 
-##### advertised.listeners里不能出现0.0.0.0
+**advertised.listeners里不能出现0.0.0.0**
 
 如果出现，客户端拿到这个“不可路由”地址后就不知道该连那一台机器。
 
@@ -124,7 +124,11 @@ ps：
 
 PLAINTEXT_EXTERNAL不能为0.0.0.0，我直接改成Windows 的IP（内网穿透的），然后就可以正常使用。
 
-因为KAFKA_ADVERTISED_LISTENERS就是告诉客户端去哪找本机的kafka
+因为KAFKA_ADVERTISED_LISTENERS就是告诉客户端去哪找本机的kafka。
+
+##### ps:
+
+KAFKA_LISTENERS的PLAINTEXT_EXTERNAL一定要是0.0.0.0不能是127.0.0.1，否则就无法接收到其他主机的访问。
 
 ##### docker-compose.yaml
 
