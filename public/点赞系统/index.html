@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head><script src="/writing-blog/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=writing-blog/livereload" data-no-instant defer></script>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <title>点赞系统 - Xiheyaoling&#39;s Blog</title><meta name="Description" content="学习记录、分享"><meta property="og:url" content="http://localhost:1313/writing-blog/%E7%82%B9%E8%B5%9E%E7%B3%BB%E7%BB%9F/">
+  <meta property="og:site_name" content="Xiheyaoling&#39;s Blog">
+  <meta property="og:title" content="点赞系统">
+  <meta property="og:description" content="找应该问什么问题，而不是怎么做 业务功能有哪些 架构的核心目的是什么？ 用户交互体验 对架构功能复杂度要求不高，不过可用性要求极高，所以需要做好降级">
+  <meta property="og:locale" content="zh_CN">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2025-12-27T17:09:01+08:00">
+    <meta property="article:modified_time" content="2025-12-27T17:09:01+08:00">
+    <meta property="og:image" content="http://localhost:1313/logo.png">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="http://localhost:1313/logo.png">
+  <meta name="twitter:title" content="点赞系统">
+  <meta name="twitter:description" content="找应该问什么问题，而不是怎么做 业务功能有哪些 架构的核心目的是什么？ 用户交互体验 对架构功能复杂度要求不高，不过可用性要求极高，所以需要做好降级">
+<meta name="application-name" content="我的网站">
+<meta name="apple-mobile-web-app-title" content="我的网站">
+<meta name="referrer" content="no-referrer" /><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="http://localhost:1313/writing-blog/%E7%82%B9%E8%B5%9E%E7%B3%BB%E7%BB%9F/" /><link rel="prev" href="http://localhost:1313/writing-blog/%E4%BD%BF%E7%94%A8ai%E8%BE%85%E5%8A%A9%E8%AE%AD%E7%BB%83/" /><link rel="next" href="http://localhost:1313/writing-blog/go-zero%E4%BD%BF%E7%94%A8/" /><link rel="stylesheet" href="/writing-blog/css/style.min.css"><link rel="preload" href="/writing-blog/lib/fontawesome-free/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="/writing-blog/lib/fontawesome-free/css/all.min.css"></noscript><link rel="preload" href="/writing-blog/lib/animate/animate.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="/writing-blog/lib/animate/animate.min.css"></noscript><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "点赞系统",
+        "inLanguage": "zh-CN",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "http:\/\/localhost:1313\/writing-blog\/%E7%82%B9%E8%B5%9E%E7%B3%BB%E7%BB%9F\/"
+        },"genre": "posts","wordcount":  1988 ,
+        "url": "http:\/\/localhost:1313\/writing-blog\/%E7%82%B9%E8%B5%9E%E7%B3%BB%E7%BB%9F\/","datePublished": "2025-12-27T17:09:01+08:00","dateModified": "2025-12-27T17:09:01+08:00","publisher": {
+            "@type": "Organization",
+            "name": ""},"author": {
+                "@type": "Person",
+                "name": "xiheyaoling"
+            },"description": ""
+    }
+    </script></head>
+    <body data-header-desktop="fixed" data-header-mobile="auto"><script>(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('auto' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'auto' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/writing-blog/" title="Xiheyaoling&#39;s Blog"></a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/writing-blog/"><i class='fa fa-home fa-fw'></i>  </a><a class="menu-item" href="/writing-blog/posts/"> 文章 </a><a class="menu-item" href="/writing-blog/tags/"> 标签 </a><a class="menu-item" href="/writing-blog/categories/"> 分类 </a><span class="menu-item delimiter"></span><span class="menu-item search" id="search-desktop">
+                        <input type="text" placeholder="Search titles or contents..." id="search-input-desktop">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="Search">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="Clear">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-desktop">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </span><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
+                    <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+                </a></div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/writing-blog/" title="Xiheyaoling&#39;s Blog"></a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><div class="search-wrapper">
+                    <div class="search mobile" id="search-mobile">
+                        <input type="text" placeholder="Search titles or contents..." id="search-input-mobile">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="Search">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="Clear">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-mobile">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </div>
+                    <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+                        Cancel
+                    </a>
+                </div><a class="menu-item" href="/writing-blog/" title=""><i class='fa fa-home fa-fw'></i></a><a class="menu-item" href="/writing-blog/posts/" title="">文章</a><a class="menu-item" href="/writing-blog/tags/" title="">标签</a><a class="menu-item" href="/writing-blog/categories/" title="">分类</a><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
+                <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+            </a></div>
+    </div>
+</header><div class="search-dropdown desktop">
+        <div id="search-dropdown-desktop"></div>
+    </div>
+    <div class="search-dropdown mobile">
+        <div id="search-dropdown-mobile"></div>
+    </div><main class="main">
+                <div class="container"><div class="toc" id="toc-auto">
+            <h2 class="toc-title">Contents</h2>
+            <div class="toc-content" id="toc-content-auto"></div>
+        </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">点赞系统</h1><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="/writing-blog/" title="Author" rel="author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>xiheyaoling</a></span>&nbsp;<span class="post-category">included in <a href="/writing-blog/categories/%E4%B8%9A%E5%8A%A1%E5%9C%BA%E6%99%AF%E8%AE%BE%E8%AE%A1/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>业务场景设计</a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2025-12-27">2025-12-27</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;1988 words&nbsp;
+                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;4 minutes&nbsp;</div>
+        </div><div class="details toc" id="toc-static"  data-kept="">
+                <div class="details-summary toc-title">
+                    <span>Contents</span>
+                    <span><i class="details-icon fas fa-angle-right" aria-hidden="true"></i></span>
+                </div>
+                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#监听binlog">监听Binlog</a>
+          <ul>
+            <li><a href="#一-核心原理它是如何工作的">一、 核心原理：它是如何工作的？</a></li>
+            <li><a href="#监听工具">监听工具</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</nav></div>
+            </div><div class="content" id="content"><p>找应该问什么问题，而不是怎么做</p>
+<ol>
+<li>
+<p>业务功能有哪些</p>
+</li>
+<li>
+<p>架构的核心目的是什么？</p>
+<ol>
+<li>用户交互体验
+<ol>
+<li>对架构<strong>功能复杂度</strong>要求不高，不过可用性要求极高，所以需要做好<strong>降级</strong>。</li>
+</ol>
+</li>
+<li>延迟
+<ol>
+<li>交互对了，写延迟几秒才能同步完全没问题</li>
+<li>读要尽量快，也就是使用缓存，甚至多级缓存。</li>
+</ol>
+</li>
+<li>高QPS
+<ol>
+<li>要保证高吞吐，像b站这种程度读300k/s，写15k/s，一定要上缓存和消息队列。除了冷热分离，必须强调 <strong>“多级缓存（Local Cache）”</strong> 和 <strong>“热点治理”</strong>。
+<ol>
+<li>热指cache，尽量让读操作放在cache中，这样才能保证吞吐。</li>
+<li>增加本地缓存，减少热点数据对redis等的压力
+<ol>
+<li>本地缓存需要较短的过期时间</li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+</li>
+<li>缓存一致性
+<ol>
+<li><strong>策略上</strong>是最终一致性，但<strong>工程实现上</strong>需要“巧妙的设计”来保证<strong>数据不丢</strong>。</li>
+</ol>
+</li>
+</ol>
+</li>
+<li>
+<p>架构迭代方式</p>
+<ol>
+<li>mysql实现必要业务功能，自己的项目可以减少一些功能，只保留必要的</li>
+<li>通过redis旁路缓存增加读能力，使用zset方便查看点赞列表</li>
+<li>写操作完全不走db，热点数据全在redis中，通过定时任务同步到mysql（冷数据）</li>
+<li>写数据打到mq，读数据使用多级缓存</li>
+</ol>
+</li>
+</ol>
+<p>在微服务架构设计中，尤其是像点赞这种<strong>高并发、通用型</strong>的基础服务，<strong>绝对不要</strong>去调用业务服务（如视频服务）来校验 video_id 是否存在。</p>
+<p>防止黑客刷接口，是 <strong>网关层（Gateway / WAF）</strong> 和 <strong>风控层</strong> 的责任，不是业务逻辑层的责任。</p>
+<ul>
+<li>应该通过 IP 限流、User-ID 频率限制、Token 校验来拦截黑客。</li>
+</ul>
+<p><a href="https://www.leyunone.com/business-design/thumbs-up.html" target="_blank" rel="noopener noreffer ">社区点赞系统设计</a></p>
+<p><strong>系统奔溃时</strong></p>
+<blockquote>
+<p>如同在文章中特别指出的一句话：</p>
+<blockquote>
+<p>点赞数、点赞、列表查询、点赞状态查询等接口，在所有兜底、降级能力都已失效的前提下也不会直接返回错误给用户，而是会以空值或者假特效的方式与用户交互。后续等服务恢复时，再将故障期间的数据写回存储。 作者：哔哩哔哩技术 <a href="https://www.bilibili.com/read/cv21576373/" target="_blank" rel="noopener noreffer ">https://www.bilibili.com/read/cv21576373/</a> 出处：bilibili</p>
+</blockquote>
+<p>不过这种解决方式并非只适用于崩溃时执行，在大多优先考虑用户交互体验的系统中都可以延用:</p>
+<p><img
+        class="lazyload"
+        src="/writing-blog/svg/loading.min.svg"
+        data-src="https://leyunone-img.oss-cn-hangzhou.aliyuncs.com/image/2024-08-16/1.png"
+        data-srcset="https://leyunone-img.oss-cn-hangzhou.aliyuncs.com/image/2024-08-16/1.png, https://leyunone-img.oss-cn-hangzhou.aliyuncs.com/image/2024-08-16/1.png 1.5x, https://leyunone-img.oss-cn-hangzhou.aliyuncs.com/image/2024-08-16/1.png 2x"
+        data-sizes="auto"
+        alt="https://leyunone-img.oss-cn-hangzhou.aliyuncs.com/image/2024-08-16/1.png"
+        title="img" /></p>
+<p>实际的业务当成订单交给异步线程，在用户角度上看就是点击了这个按钮就一定成功，剩下的就交给系统的各种重试机制、兜底机制、人工干预；</p>
+</blockquote>
+<blockquote>
+<p><strong>查询分页</strong></p>
+<p>对一个视频下的所有评论进行点赞，假设上限为999；</p>
+<p>如果查询这个点赞列表采用的是游标分页，那么点赞列表的记录就一定需要有一个标识用于分页；</p>
+<p>如果查询这个点赞列表适用的是全量返回，那么超过999的数据页的评论点赞记录就会消失；</p>
+<p>因此这里极大可能是<u>redis+db数据回溯</u>的方式；</p>
+<p>仅记录前999条，从第999条开始的数据查询数据库，数据再以<u>短时效保存到临时缓存</u>中；</p>
+</blockquote>
+<p>常用的状态下点赞、取消点赞都是存在一个最新的zset中，此处查询点赞列表的冷数据放在一个临时的zset中，这样不会对真正“新”的数据有所干扰，并且如果进行操作也可以正常进行。设置的临时zset过期时间较短，这样也不会对内存造成太大的压力。</p>
+<p><a href="https://www.bilibili.com/opus/758312609901445367" target="_blank" rel="noopener noreffer "><strong>B站千亿级点赞系统服务架构设计</strong></a></p>
+<p><img
+        class="lazyload"
+        src="/writing-blog/svg/loading.min.svg"
+        data-src="https://cdn.jsdelivr.net/gh/code-dom/picGo/img/202512271730645.avif"
+        data-srcset="https://cdn.jsdelivr.net/gh/code-dom/picGo/img/202512271730645.avif, https://cdn.jsdelivr.net/gh/code-dom/picGo/img/202512271730645.avif 1.5x, https://cdn.jsdelivr.net/gh/code-dom/picGo/img/202512271730645.avif 2x"
+        data-sizes="auto"
+        alt="https://cdn.jsdelivr.net/gh/code-dom/picGo/img/202512271730645.avif"
+        title="img" /></p>
+<h3 id="监听binlog">监听Binlog</h3>
+<h4 id="一-核心原理它是如何工作的">一、 核心原理：它是如何工作的？</h4>
+<p>MySQL 的 Binlog 记录了所有的 DDL 和 DML 语句。监听 Binlog 的工具本质上是<strong>把自己伪装成一个 MySQL Slave（从库）</strong>：</p>
+<ol>
+<li><strong>伪装：</strong> 监听工具向 MySQL Master 发送 dump 请求。</li>
+<li><strong>拉取：</strong> Master 认为它是从库，会将 Binlog 事件实时推送给它。</li>
+<li><strong>解析：</strong> 工具解析二进制流，将其转化为结构化的数据（JSON 或对象），包含：哪个表、什么动作（Insert/Update/Delete）、旧值、新值。</li>
+</ol>
+<h4 id="监听工具">监听工具</h4>
+<ul>
+<li>
+<p>canal</p>
+<ul>
+<li>
+<p><strong>canal [kə&rsquo;næl]</strong>，译意为水道/管道/沟渠，主要用途是<strong>基于 MySQL 数据库</strong>增量日志解析，提供增量数据订阅和消费</p>
+</li>
+<li>
+<p>工作流程</p>
+<ol>
+<li>
+<p>Canal连接到mysql数据库，模拟slave</p>
+</li>
+<li>
+<p>canal-go与Canal建立连接</p>
+</li>
+<li>
+<p>数据库发生变更写入到binlog</p>
+</li>
+<li>
+<p>Canal向数据库发送dump请求，获取binlog并解析</p>
+</li>
+<li>
+<p>canal-go向Canal请求数据库变更</p>
+</li>
+<li>
+<p>Canal发送解析后的数据给canal-go</p>
+</li>
+<li>
+<p>canal-go收到数据，消费成功，发送回执。（可选）</p>
+</li>
+<li>
+<p>Canal记录消费位置。</p>
+</li>
+</ol>
+</li>
+<li>
+<p><a href="https://github.com/alibaba/canal/wiki/QuickStart" target="_blank" rel="noopener noreffer ">quickstart</a></p>
+</li>
+<li></li>
+</ul>
+</li>
+<li>
+<p>debezium</p>
+<ul>
+<li>Debezium是一个开源项目，为捕获数据更改(change data capture,CDC)提供了一个低延迟的流式处理平台。你可以安装并且配置Debezium去监控你的数据库，然后你的应用就可以消费对数据库的每一个行级别(row-level)的更改。
+<ul>
+<li>只有已提交的更改才是可见的，所以你的应用不用担心事务(transaction)或者更改被回滚(roll back)。</li>
+<li>Debezium<strong>为所有的数据库更改事件</strong>提供了一个统一的模型，所以你的应用不用担心每一种数据库管理系统的错综复杂性。</li>
+<li>另外，由于Debezium用持久化的、有副本备份的日志来记录数据库数据变化的历史，因此，你的应用可以随时停止再重启，而不会错过它停止运行时发生的事件，保证了所有的事件都能被正确地、完全地处理掉。</li>
+</ul>
+</li>
+<li>适用于
+<ul>
+<li>缓存失效(Cache invalidation)</li>
+<li>简化单体应用(Simplifying monolithic applications)</li>
+<li>共享数据库(Sharing databases)</li>
+<li>数据集成(Data integration)</li>
+<li>命令查询职责分离(CQRS)</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>flink</p>
+</li>
+</ul>
+<p>打印出来的数据</p>
+<p>header:version:1 logfileName:&ldquo;binlog.000018&rdquo; logfileOffset:19076 serverId:1 serverenCode:&ldquo;UTF-8&rdquo; executeTime:1767340121000 sourceType:MYSQL schemaName:&ldquo;video_db&rdquo; tableName:&ldquo;likes&rdquo; eventLength:73 eventType:INSERT props:{key:&ldquo;rowsCount&rdquo; value:&ldquo;1&rdquo;}
+header:version:1 logfileName:&ldquo;binlog.000018&rdquo; logfileOffset:19768 serverId:1 serverenCode:&ldquo;UTF-8&rdquo; executeTime:1767340124000 sourceType:MYSQL schemaName:&ldquo;video_db&rdquo; tableName:&ldquo;likes&rdquo; eventLength:73 eventType:INSERT props:{key:&ldquo;rowsCount&rdquo; value:&ldquo;1&rdquo;}</p>
+</div><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>Updated on 2025-12-27</span>
+            </div><div class="post-info-license">
+                <span><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span>
+            </div></div>
+        <div class="post-info-line">
+            <div class="post-info-md"><span>
+                            <a class="link-to-markdown" href="/writing-blog/%E7%82%B9%E8%B5%9E%E7%B3%BB%E7%BB%9F/index.md" target="_blank">Read Markdown</a>
+                        </span></div>
+            <div class="post-info-share">
+                <span></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"></section>
+        <section>
+            <span><a href="javascript:void(0);" onclick="window.history.back();">Back</a></span>&nbsp;|&nbsp;<span><a href="/writing-blog/">Home</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav"><a href="/writing-blog/%E4%BD%BF%E7%94%A8ai%E8%BE%85%E5%8A%A9%E8%AE%AD%E7%BB%83/" class="prev" rel="prev" title="使用ai辅助训练"><i class="fas fa-angle-left fa-fw" aria-hidden="true"></i>使用ai辅助训练</a>
+            <a href="/writing-blog/go-zero%E4%BD%BF%E7%94%A8/" class="next" rel="next" title="Go Zero使用">Go Zero使用<i class="fas fa-angle-right fa-fw" aria-hidden="true"></i></a></div>
+</div>
+</article></div>
+            </main><footer class="footer">
+        <div class="footer-container"><div class="footer-line">Powered by <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.130.0">Hugo</a> | Theme - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.3.1-DEV"><i class="far fa-kiss-wink-heart fa-fw" aria-hidden="true"></i> LoveIt</a>
+                </div><div class="footer-line" itemscope itemtype="http://schema.org/CreativeWork"><i class="far fa-copyright fa-fw" aria-hidden="true"></i><span itemprop="copyrightYear">2019 - 2026</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="/writing-blog/" target="_blank">xiheyaoling</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span></div>
+        </div>
+    </footer></div>
+
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="Back to Top">
+                <i class="fas fa-arrow-up fa-fw" aria-hidden="true"></i>
+            </a>
+        </div>
+
+        <div id="fixed-buttons-hidden"><a href="#" id="view-comments" class="fixed-button" title="View Comments">
+                <i class="fas fa-comment fa-fw" aria-hidden="true"></i>
+            </a>
+        </div><link rel="stylesheet" href="/writing-blog/lib/katex/katex.min.css"><link rel="stylesheet" href="/writing-blog/lib/cookieconsent/cookieconsent.min.css"><script src="/writing-blog/lib/autocomplete/autocomplete.min.js"></script><script src="/writing-blog/lib/lunr/lunr.min.js"></script><script src="/writing-blog/lib/lazysizes/lazysizes.min.js"></script><script src="/writing-blog/lib/clipboard/clipboard.min.js"></script><script src="/writing-blog/lib/katex/katex.min.js"></script><script src="/writing-blog/lib/katex/contrib/auto-render.min.js"></script><script src="/writing-blog/lib/katex/contrib/copy-tex.min.js"></script><script src="/writing-blog/lib/katex/contrib/mhchem.min.js"></script><script src="/writing-blog/lib/cookieconsent/cookieconsent.min.js"></script><script>window.config={"comment":{},"cookieconsent":{"content":{"dismiss":"Got it!","link":"Learn more","message":"This website uses Cookies to improve your experience."},"enable":true,"palette":{"button":{"background":"#f0f0f0"},"popup":{"background":"#1aa3ff"}},"theme":"edgeless"},"math":{"delimiters":[{"display":true,"left":"$$","right":"$$"},{"display":true,"left":"\\[","right":"\\]"},{"display":true,"left":"\\begin{equation}","right":"\\end{equation}"},{"display":true,"left":"\\begin{equation*}","right":"\\end{equation*}"},{"display":true,"left":"\\begin{align}","right":"\\end{align}"},{"display":true,"left":"\\begin{align*}","right":"\\end{align*}"},{"display":true,"left":"\\begin{alignat}","right":"\\end{alignat}"},{"display":true,"left":"\\begin{alignat*}","right":"\\end{alignat*}"},{"display":true,"left":"\\begin{gather}","right":"\\end{gather}"},{"display":true,"left":"\\begin{CD}","right":"\\end{CD}"},{"display":false,"left":"$","right":"$"},{"display":false,"left":"\\(","right":"\\)"}],"strict":false},"search":{"highlightTag":"em","lunrIndexURL":"/writing-blog/index.json","maxResultLength":10,"noResultsFound":"No results found","snippetLength":50,"type":"lunr"}};</script><script src="/writing-blog/js/theme.min.js"></script></body>
+</html>

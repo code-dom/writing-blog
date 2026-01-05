@@ -4,38 +4,38 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="robots" content="noodp" />
-        <title>外国底层生活有感 - Xiheyaoling&#39;s Blog</title><meta name="Description" content="学习记录、分享"><meta property="og:url" content="http://localhost:1313/writing-blog/%E5%A4%96%E5%9B%BD%E5%BA%95%E5%B1%82%E7%94%9F%E6%B4%BB%E6%9C%89%E6%84%9F/">
+        <title>Claude Code 快速接入多种大模型 API - Xiheyaoling&#39;s Blog</title><meta name="Description" content="学习记录、分享"><meta property="og:url" content="http://localhost:1313/writing-blog/claude/">
   <meta property="og:site_name" content="Xiheyaoling&#39;s Blog">
-  <meta property="og:title" content="外国底层生活有感">
-  <meta property="og:description" content="看到了欧美的下限有感">
+  <meta property="og:title" content="Claude Code 快速接入多种大模型 API">
+  <meta property="og:description" content="核心权衡：直连 vs 代理 在使用 Claude Code 时，想要更换底层的 AI 模型，通常面临两种选择： 原生支持 Anthropic API 的模型：可以直接配置使用。 不支持 Anthropic API 的模型（如 Open">
   <meta property="og:locale" content="zh_CN">
   <meta property="og:type" content="article">
     <meta property="article:section" content="posts">
-    <meta property="article:published_time" content="2025-12-22T17:22:27+08:00">
-    <meta property="article:modified_time" content="2025-12-22T17:22:27+08:00">
+    <meta property="article:published_time" content="2026-01-05T12:05:29+08:00">
+    <meta property="article:modified_time" content="2026-01-05T12:05:29+08:00">
     <meta property="og:image" content="http://localhost:1313/logo.png">
 
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:image" content="http://localhost:1313/logo.png">
-  <meta name="twitter:title" content="外国底层生活有感">
-  <meta name="twitter:description" content="看到了欧美的下限有感">
+  <meta name="twitter:title" content="Claude Code 快速接入多种大模型 API">
+  <meta name="twitter:description" content="核心权衡：直连 vs 代理 在使用 Claude Code 时，想要更换底层的 AI 模型，通常面临两种选择： 原生支持 Anthropic API 的模型：可以直接配置使用。 不支持 Anthropic API 的模型（如 Open">
 <meta name="application-name" content="我的网站">
 <meta name="apple-mobile-web-app-title" content="我的网站">
 <meta name="referrer" content="no-referrer" /><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
         <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="http://localhost:1313/writing-blog/%E5%A4%96%E5%9B%BD%E5%BA%95%E5%B1%82%E7%94%9F%E6%B4%BB%E6%9C%89%E6%84%9F/" /><link rel="prev" href="http://localhost:1313/writing-blog/windows%E4%BD%BF%E7%94%A8docker%E9%83%A8%E7%BD%B2%E4%B8%AD%E9%97%B4%E4%BB%B6/" /><link rel="next" href="http://localhost:1313/writing-blog/%E4%BD%BF%E7%94%A8ai%E8%BE%85%E5%8A%A9%E8%AE%AD%E7%BB%83/" /><link rel="stylesheet" href="/writing-blog/css/style.min.css"><link rel="preload" href="/writing-blog/lib/fontawesome-free/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="http://localhost:1313/writing-blog/claude/" /><link rel="prev" href="http://localhost:1313/writing-blog/rust%E5%AE%9E%E7%8E%B0db%E5%86%85%E6%A0%B8/" /><link rel="stylesheet" href="/writing-blog/css/style.min.css"><link rel="preload" href="/writing-blog/lib/fontawesome-free/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
         <noscript><link rel="stylesheet" href="/writing-blog/lib/fontawesome-free/css/all.min.css"></noscript><link rel="preload" href="/writing-blog/lib/animate/animate.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
         <noscript><link rel="stylesheet" href="/writing-blog/lib/animate/animate.min.css"></noscript><script type="application/ld+json">
     {
         "@context": "http://schema.org",
         "@type": "BlogPosting",
-        "headline": "外国底层生活有感",
+        "headline": "Claude Code 快速接入多种大模型 API",
         "inLanguage": "zh-CN",
         "mainEntityOfPage": {
             "@type": "WebPage",
-            "@id": "http:\/\/localhost:1313\/writing-blog\/%E5%A4%96%E5%9B%BD%E5%BA%95%E5%B1%82%E7%94%9F%E6%B4%BB%E6%9C%89%E6%84%9F\/"
-        },"genre": "posts","wordcount":  10 ,
-        "url": "http:\/\/localhost:1313\/writing-blog\/%E5%A4%96%E5%9B%BD%E5%BA%95%E5%B1%82%E7%94%9F%E6%B4%BB%E6%9C%89%E6%84%9F\/","datePublished": "2025-12-22T17:22:27+08:00","dateModified": "2025-12-22T17:22:27+08:00","publisher": {
+            "@id": "http:\/\/localhost:1313\/writing-blog\/claude\/"
+        },"genre": "posts","wordcount":  779 ,
+        "url": "http:\/\/localhost:1313\/writing-blog\/claude\/","datePublished": "2026-01-05T12:05:29+08:00","dateModified": "2026-01-05T12:05:29+08:00","publisher": {
             "@type": "Organization",
             "name": ""},"author": {
                 "@type": "Person",
@@ -106,28 +106,101 @@
                 <div class="container"><div class="toc" id="toc-auto">
             <h2 class="toc-title">Contents</h2>
             <div class="toc-content" id="toc-content-auto"></div>
-        </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">外国底层生活有感</h1><h2 class="single-subtitle">主要关注欧美发达国家</h2><div class="post-meta">
-            <div class="post-meta-line"><span class="post-author"><a href="/writing-blog/" title="Author" rel="author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>xiheyaoling</a></span>&nbsp;<span class="post-category">included in <a href="/writing-blog/categories/%E6%9D%82%E8%B0%88/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>杂谈</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2025-12-22">2025-12-22</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;10 words&nbsp;
-                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;One minute&nbsp;</div>
+        </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">Claude Code 快速接入多种大模型 API</h1><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="/writing-blog/" title="Author" rel="author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>xiheyaoling</a></span>&nbsp;<span class="post-category">included in <a href="/writing-blog/categories/%E5%B7%A5%E5%85%B7/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>工具</a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2026-01-05">2026-01-05</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;779 words&nbsp;
+                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;2 minutes&nbsp;</div>
         </div><div class="details toc" id="toc-static"  data-kept="">
                 <div class="details-summary toc-title">
                     <span>Contents</span>
                     <span><i class="details-icon fas fa-angle-right" aria-hidden="true"></i></span>
                 </div>
-                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents"></nav></div>
-            </div><div class="content" id="content"><p>看到了欧美的下限有感</p>
+                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#核心权衡直连-vs-代理">核心权衡：直连 vs 代理</a></li>
+        <li><a href="#技术背景生成式-ai-接口协议对比">技术背景：生成式 AI 接口协议对比</a></li>
+        <li><a href="#实战配置通过-alias-实现一键切换">实战配置：通过 Alias 实现“一键切换”</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav></div>
+            </div><div class="content" id="content"><h3 id="核心权衡直连-vs-代理">核心权衡：直连 vs 代理</h3>
+<p>在使用 Claude Code 时，想要更换底层的 AI 模型，通常面临两种选择：</p>
+<ol>
+<li><strong>原生支持 Anthropic API 的模型</strong>：可以直接配置使用。</li>
+<li><strong>不支持 Anthropic API 的模型</strong>（如 OpenAI、DeepSeek 等）：通常需要引入 <code>claude-code-router</code> 或 <code>claude-code-proxy</code> 等第三方中间件进行协议转换。</li>
+</ol>
+<p>虽然第三方代理能提供更强大的路由和分流功能，但也引入了<strong>额外的环境配置成本</strong>。重新审视我接入多模型的核心诉求，其实非常简单：<strong>便宜的模型处理简单任务，昂贵的模型处理复杂逻辑</strong>。</p>
+<p>我并不需要复杂的自动调度，对于任务的难易程度，我有足够的主观判断力。我真正痛点在于如何<strong>毫秒级地在不同 AI 之间切换</strong>。</p>
+<p><strong>因此，本文旨在探索一种极简方案：适用于模型本身兼容 Anthropic 协议（或通过简单转发），且追求零依赖、快速切换体验的开发者。</strong></p>
+<h3 id="技术背景生成式-ai-接口协议对比">技术背景：生成式 AI 接口协议对比</h3>
+<p>当前主流的 LLM 接口主要分为 OpenAI 派系和 Anthropic 派系。了解它们的差异有助于我们进行配置：</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left"><strong>维度</strong></th>
+<th style="text-align:left"><strong>OpenAI API</strong></th>
+<th style="text-align:left"><strong>Anthropic API</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left"><strong>标准端点</strong></td>
+<td style="text-align:left"><code>https://api.openai.com/v1/chat/completions</code></td>
+<td style="text-align:left"><code>https://api.anthropic.com/v1/messages</code></td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>鉴权方式</strong></td>
+<td style="text-align:left">Header: <code>Authorization: Bearer &lt;sk-key&gt;</code></td>
+<td style="text-align:left">Header: <code>x-api-key: &lt;sk-key&gt;</code> 及 <code>anthropic-version</code></td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>消息结构</strong></td>
+<td style="text-align:left"><code>messages</code> 列表中包含 system/user/assistant</td>
+<td style="text-align:left"><code>messages</code> 仅含 user/assistant，<code>system</code> 作为顶层参数独立传递</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>计费粒度</strong></td>
+<td style="text-align:left">计费接口成熟，支持按 Project/Key 细分，易于对接企业监控</td>
+<td style="text-align:left">提供基础用量 API，但在精细化成本核算上（如优先级服务）稍微滞后</td>
+</tr>
+</tbody>
+</table>
+<p><em>(图表参考：<a href="https://www.cnblogs.com/philry/p/19359139" target="_blank" rel="noopener noreffer ">OpenAI API 和 Anthropic API的区别及对比</a>)</em></p>
+<h3 id="实战配置通过-alias-实现一键切换">实战配置：通过 Alias 实现“一键切换”</h3>
+<p>Claude Code 的灵活性在于它允许通过环境变量覆盖默认配置。</p>
+<p>首先，建议移除 <code>~/.claude/config.json</code> 中关于模型的硬编码配置（如果有），这样我们就可以完全通过命令行参数来动态控制。同时，Claude Code 会在当前项目的 <code>.claude</code> 目录中存储上下文，这意味着我们可以通过 <code>cc-ds -c</code> 这样的命令在不同模型间共享对话历史。</p>
+<p>以下以接入 <strong>DeepSeek</strong> 为例（DeepSeek目前已经支持Anthropic协议访问）：</p>
+<p>我使用的是 <code>zsh</code>，在 <code>~/.zshrc</code> 中添加如下 <code>alias</code>：</p>
+<div class="code-block code-line-numbers" style="counter-reset: code-block 0">
+    <div class="code-header language-bash">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copy to clipboard"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># DeepSeek 快速启动别名</span>
+</span></span><span class="line"><span class="cl"><span class="nb">alias</span> cc-ds<span class="o">=</span><span class="s1">&#39;env \
+</span></span></span><span class="line"><span class="cl"><span class="s1">  ANTHROPIC_BASE_URL=&#34;https://api.deepseek.com/anthropic&#34; \
+</span></span></span><span class="line"><span class="cl"><span class="s1">  ANTHROPIC_AUTH_TOKEN=&#34;你的api_key&#34; \
+</span></span></span><span class="line"><span class="cl"><span class="s1">  API_TIMEOUT_MS=600000 \
+</span></span></span><span class="line"><span class="cl"><span class="s1">  ANTHROPIC_MODEL=&#34;deepseek-chat&#34; \
+</span></span></span><span class="line"><span class="cl"><span class="s1">  ANTHROPIC_SMALL_FAST_MODEL=&#34;deepseek-chat&#34; \
+</span></span></span><span class="line"><span class="cl"><span class="s1">  ANTHROPIC_DEFAULT_SONNET_MODEL=&#34;deepseek-chat&#34; \
+</span></span></span><span class="line"><span class="cl"><span class="s1">  ANTHROPIC_DEFAULT_HAIKU_MODEL=&#34;deepseek-chat&#34; \
+</span></span></span><span class="line"><span class="cl"><span class="s1">  CLAUDE_CODE_DISABLE_NONESSENTIAL_TRAFFIC=1 \
+</span></span></span><span class="line"><span class="cl"><span class="s1">  claude&#39;</span></span></span></code></pre></div></div>
 </div><div class="post-footer" id="post-footer">
     <div class="post-info">
         <div class="post-info-line">
             <div class="post-info-mod">
-                <span>Updated on 2025-12-22</span>
+                <span>Updated on 2026-01-05</span>
             </div><div class="post-info-license">
                 <span><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span>
             </div></div>
         <div class="post-info-line">
             <div class="post-info-md"><span>
-                            <a class="link-to-markdown" href="/writing-blog/%E5%A4%96%E5%9B%BD%E5%BA%95%E5%B1%82%E7%94%9F%E6%B4%BB%E6%9C%89%E6%84%9F/index.md" target="_blank">Read Markdown</a>
+                            <a class="link-to-markdown" href="/writing-blog/claude/index.md" target="_blank">Read Markdown</a>
                         </span></div>
             <div class="post-info-share">
                 <span></span>
@@ -142,8 +215,7 @@
         </section>
     </div>
 
-    <div class="post-nav"><a href="/writing-blog/windows%E4%BD%BF%E7%94%A8docker%E9%83%A8%E7%BD%B2%E4%B8%AD%E9%97%B4%E4%BB%B6/" class="prev" rel="prev" title="Windows使用docker部署中间件"><i class="fas fa-angle-left fa-fw" aria-hidden="true"></i>Windows使用docker部署中间件</a>
-            <a href="/writing-blog/%E4%BD%BF%E7%94%A8ai%E8%BE%85%E5%8A%A9%E8%AE%AD%E7%BB%83/" class="next" rel="next" title="使用ai辅助训练">使用ai辅助训练<i class="fas fa-angle-right fa-fw" aria-hidden="true"></i></a></div>
+    <div class="post-nav"><a href="/writing-blog/rust%E5%AE%9E%E7%8E%B0db%E5%86%85%E6%A0%B8/" class="prev" rel="prev" title="Rust实现db内核"><i class="fas fa-angle-left fa-fw" aria-hidden="true"></i>Rust实现db内核</a></div>
 </div>
 </article></div>
             </main><footer class="footer">

@@ -4,7 +4,55 @@
         <link>http://localhost:1313/writing-blog/posts/</link>
         <description>All Posts | Xiheyaoling&#39;s Blog</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>xiheyaoling@gmail.com (xiheyaoling)</managingEditor>
-            <webMaster>xiheyaoling@gmail.com (xiheyaoling)</webMaster><lastBuildDate>Mon, 22 Dec 2025 17:22:27 &#43;0800</lastBuildDate><atom:link href="http://localhost:1313/writing-blog/posts/" rel="self" type="application/rss+xml" /><item>
+            <webMaster>xiheyaoling@gmail.com (xiheyaoling)</webMaster><lastBuildDate>Mon, 05 Jan 2026 12:05:29 &#43;0800</lastBuildDate><atom:link href="http://localhost:1313/writing-blog/posts/" rel="self" type="application/rss+xml" /><item>
+    <title>Claude Code 快速接入多种大模型 API</title>
+    <link>http://localhost:1313/writing-blog/claude/</link>
+    <pubDate>Mon, 05 Jan 2026 12:05:29 &#43;0800</pubDate>
+    <author>xiheyaoling</author>
+    <guid>http://localhost:1313/writing-blog/claude/</guid>
+    <description><![CDATA[核心权衡：直连 vs 代理 在使用 Claude Code 时，想要更换底层的 AI 模型，通常面临两种选择： 原生支持 Anthropic API 的模型：可以直接配置使用。 不支持 Anthropic API 的模型（如 Open]]></description>
+</item>
+<item>
+    <title>Rust实现db内核</title>
+    <link>http://localhost:1313/writing-blog/rust%E5%AE%9E%E7%8E%B0db%E5%86%85%E6%A0%B8/</link>
+    <pubDate>Fri, 02 Jan 2026 21:12:18 &#43;0800</pubDate>
+    <author>xiheyaoling</author>
+    <guid>http://localhost:1313/writing-blog/rust%E5%AE%9E%E7%8E%B0db%E5%86%85%E6%A0%B8/</guid>
+    <description><![CDATA[实现具有持久化与恢复能力的KV内核原型 参考文档]]></description>
+</item>
+<item>
+    <title>Go Zero使用</title>
+    <link>http://localhost:1313/writing-blog/go-zero%E4%BD%BF%E7%94%A8/</link>
+    <pubDate>Sun, 28 Dec 2025 15:36:45 &#43;0800</pubDate>
+    <author>xiheyaoling</author>
+    <guid>http://localhost:1313/writing-blog/go-zero%E4%BD%BF%E7%94%A8/</guid>
+    <description><![CDATA[]]></description>
+</item>
+<item>
+    <title>点赞系统</title>
+    <link>http://localhost:1313/writing-blog/%E7%82%B9%E8%B5%9E%E7%B3%BB%E7%BB%9F/</link>
+    <pubDate>Sat, 27 Dec 2025 17:09:01 &#43;0800</pubDate>
+    <author>xiheyaoling</author>
+    <guid>http://localhost:1313/writing-blog/%E7%82%B9%E8%B5%9E%E7%B3%BB%E7%BB%9F/</guid>
+    <description><![CDATA[找应该问什么问题，而不是怎么做 业务功能有哪些 架构的核心目的是什么？ 用户交互体验 对架构功能复杂度要求不高，不过可用性要求极高，所以需要做好降级]]></description>
+</item>
+<item>
+    <title>使用ai辅助训练</title>
+    <link>http://localhost:1313/writing-blog/%E4%BD%BF%E7%94%A8ai%E8%BE%85%E5%8A%A9%E8%AE%AD%E7%BB%83/</link>
+    <pubDate>Fri, 26 Dec 2025 15:11:06 &#43;0800</pubDate>
+    <author>xiheyaoling</author>
+    <guid>http://localhost:1313/writing-blog/%E4%BD%BF%E7%94%A8ai%E8%BE%85%E5%8A%A9%E8%AE%AD%E7%BB%83/</guid>
+    <description><![CDATA[刷题现在通过ai辅助应该能提升很多效率。首先刷题核心在于如何处理高质量的难题（稍微有点提示能做出来的），但是如果看题解会面临无法理解和无法明]]></description>
+</item>
+<item>
+    <title>外国底层生活有感</title>
+    <link>http://localhost:1313/writing-blog/%E5%A4%96%E5%9B%BD%E5%BA%95%E5%B1%82%E7%94%9F%E6%B4%BB%E6%9C%89%E6%84%9F/</link>
+    <pubDate>Mon, 22 Dec 2025 17:22:27 &#43;0800</pubDate>
+    <author>xiheyaoling</author>
+    <guid>http://localhost:1313/writing-blog/%E5%A4%96%E5%9B%BD%E5%BA%95%E5%B1%82%E7%94%9F%E6%B4%BB%E6%9C%89%E6%84%9F/</guid>
+    <description><![CDATA[看到了欧美的下限有感]]></description>
+</item>
+<item>
     <title>Windows使用docker部署中间件</title>
     <link>http://localhost:1313/writing-blog/windows%E4%BD%BF%E7%94%A8docker%E9%83%A8%E7%BD%B2%E4%B8%AD%E9%97%B4%E4%BB%B6/</link>
     <pubDate>Sun, 21 Dec 2025 22:03:51 &#43;0800</pubDate>
@@ -19,6 +67,14 @@
     <author>xiheyaoling</author>
     <guid>http://localhost:1313/writing-blog/hugo%E4%BD%BF%E7%94%A8/</guid>
     <description><![CDATA[前置项 前提：安装hugo，官网链接，自行根据自己电脑系统进行选择 Quick start 1.创建项目 hugo new site 项目名 2.创建具体blog hugo new xxx.md 在文档中撰写blog内]]></description>
+</item>
+<item>
+    <title>虚拟内存和物理内存</title>
+    <link>http://localhost:1313/writing-blog/%E8%99%9A%E6%8B%9F%E5%86%85%E5%AD%98%E5%92%8C%E7%89%A9%E7%90%86%E5%86%85%E5%AD%98/</link>
+    <pubDate>Mon, 14 Apr 2025 14:50:59 &#43;0800</pubDate>
+    <author>xiheyaoling</author>
+    <guid>http://localhost:1313/writing-blog/%E8%99%9A%E6%8B%9F%E5%86%85%E5%AD%98%E5%92%8C%E7%89%A9%E7%90%86%E5%86%85%E5%AD%98/</guid>
+    <description><![CDATA[]]></description>
 </item>
 <item>
     <title>My First Post</title>

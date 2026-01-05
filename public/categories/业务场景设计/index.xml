@@ -1,0 +1,16 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>业务场景设计 - Category - Xiheyaoling&#39;s Blog</title>
+        <link>http://localhost:1313/writing-blog/categories/%E4%B8%9A%E5%8A%A1%E5%9C%BA%E6%99%AF%E8%AE%BE%E8%AE%A1/</link>
+        <description>业务场景设计 - Category - Xiheyaoling&#39;s Blog</description>
+        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>xiheyaoling@gmail.com (xiheyaoling)</managingEditor>
+            <webMaster>xiheyaoling@gmail.com (xiheyaoling)</webMaster><lastBuildDate>Sat, 27 Dec 2025 17:09:01 &#43;0800</lastBuildDate><atom:link href="http://localhost:1313/writing-blog/categories/%E4%B8%9A%E5%8A%A1%E5%9C%BA%E6%99%AF%E8%AE%BE%E8%AE%A1/" rel="self" type="application/rss+xml" /><item>
+    <title>点赞系统</title>
+    <link>http://localhost:1313/writing-blog/%E7%82%B9%E8%B5%9E%E7%B3%BB%E7%BB%9F/</link>
+    <pubDate>Sat, 27 Dec 2025 17:09:01 &#43;0800</pubDate>
+    <author>xiheyaoling</author>
+    <guid>http://localhost:1313/writing-blog/%E7%82%B9%E8%B5%9E%E7%B3%BB%E7%BB%9F/</guid>
+    <description><![CDATA[找应该问什么问题，而不是怎么做 业务功能有哪些 架构的核心目的是什么？ 用户交互体验 对架构功能复杂度要求不高，不过可用性要求极高，所以需要做好降级]]></description>
+</item>
+</channel>
+</rss>

@@ -4,7 +4,15 @@
         <link>http://localhost:1313/writing-blog/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/</link>
         <description>计算机基础 - Category - Xiheyaoling&#39;s Blog</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>xiheyaoling@gmail.com (xiheyaoling)</managingEditor>
-            <webMaster>xiheyaoling@gmail.com (xiheyaoling)</webMaster><lastBuildDate>Mon, 14 Apr 2025 14:50:59 &#43;0800</lastBuildDate><atom:link href="http://localhost:1313/writing-blog/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/" rel="self" type="application/rss+xml" /><item>
+            <webMaster>xiheyaoling@gmail.com (xiheyaoling)</webMaster><lastBuildDate>Fri, 02 Jan 2026 21:12:18 &#43;0800</lastBuildDate><atom:link href="http://localhost:1313/writing-blog/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/" rel="self" type="application/rss+xml" /><item>
+    <title>Rust实现db内核</title>
+    <link>http://localhost:1313/writing-blog/rust%E5%AE%9E%E7%8E%B0db%E5%86%85%E6%A0%B8/</link>
+    <pubDate>Fri, 02 Jan 2026 21:12:18 &#43;0800</pubDate>
+    <author>xiheyaoling</author>
+    <guid>http://localhost:1313/writing-blog/rust%E5%AE%9E%E7%8E%B0db%E5%86%85%E6%A0%B8/</guid>
+    <description><![CDATA[实现具有持久化与恢复能力的KV内核原型 参考文档]]></description>
+</item>
+<item>
     <title>虚拟内存和物理内存</title>
     <link>http://localhost:1313/writing-blog/%E8%99%9A%E6%8B%9F%E5%86%85%E5%AD%98%E5%92%8C%E7%89%A9%E7%90%86%E5%86%85%E5%AD%98/</link>
     <pubDate>Mon, 14 Apr 2025 14:50:59 &#43;0800</pubDate>
